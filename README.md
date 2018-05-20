@@ -204,6 +204,15 @@ bg_simplify(polygon, distance = 0.2)
 #> [1] "POLYGON((0.5 0,0.1 0.4,0 0,0 0.2,0.5 0))"
 ```
 
+### Unique
+
+``` r
+bg_unique("LINESTRING(0 0,0 0,1 1,1 1,2 2)")
+#> [1] "LINESTRING(0 0,1 1,2 2)"
+bg_unique("POLYGON((0 0,0 0,0 5,5 5,5 5,5 5,5 0,5 0,0 0,0 0,0 0,0 0))")
+#> [1] "POLYGON((0 0,0 5,5 5,5 0,0 0))"
+```
+
 ### Within
 
 ``` r
