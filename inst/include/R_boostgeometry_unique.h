@@ -1,4 +1,4 @@
-/*
+
 #ifndef R_BOOSTGEOMETRY_UNIQUE_H
 #define R_BOOSTGEOMETRY_UNIQUE_H
 
@@ -8,10 +8,10 @@ namespace bg = boost::geometry;
 namespace bgm = boost::geometry::model;
 
 typedef boost::variant<
-//  linestring_cartesian
-//  , multi_linestring_cartesian
-   polygon_cartesian
-//  , multi_polygon_cartesian
+  linestring_cartesian
+  , multi_linestring_cartesian
+  , polygon_cartesian
+  , multi_polygon_cartesian
 > CartesianUnique;
 
 typedef boost::variant<
@@ -44,4 +44,4 @@ Variant read_geographic_unique_wkt(std::string const& wkt) {
 }
 
 #endif
-*/
+

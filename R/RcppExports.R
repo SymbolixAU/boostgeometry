@@ -133,6 +133,18 @@ rcpp_wkt_simplify_spherical <- function(wkt, distance) {
     .Call(`_boostgeometry_rcpp_wkt_simplify_spherical`, wkt, distance)
 }
 
+rcpp_wkt_unique_cartesian <- function(wkt) {
+    .Call(`_boostgeometry_rcpp_wkt_unique_cartesian`, wkt)
+}
+
+rcpp_wkt_unique_spherical <- function(wkt) {
+    .Call(`_boostgeometry_rcpp_wkt_unique_spherical`, wkt)
+}
+
+rcpp_wkt_unique_geographic <- function(wkt) {
+    .Call(`_boostgeometry_rcpp_wkt_unique_geographic`, wkt)
+}
+
 rcpp_wkt_within_cartesian <- function(x, y) {
     .Call(`_boostgeometry_rcpp_wkt_within_cartesian`, x, y)
 }

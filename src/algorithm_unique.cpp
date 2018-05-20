@@ -1,9 +1,9 @@
-/*
+
 #include "R_boostgeometry_unique.h"
 #include <Rcpp.h>
 using namespace Rcpp;
 
-// TODO(equals doesn't work with variants)
+// [[Rcpp::export]]
 Rcpp::StringVector rcpp_wkt_unique_cartesian( Rcpp::List wkt ) {
   Rcpp::StringVector wktUnique( wkt.length() );
 
@@ -19,6 +19,7 @@ Rcpp::StringVector rcpp_wkt_unique_cartesian( Rcpp::List wkt ) {
   return wktUnique;
 }
 
+// [[Rcpp::export]]
 Rcpp::StringVector rcpp_wkt_unique_spherical( Rcpp::List wkt ) {
   Rcpp::StringVector wktUnique( wkt.length() );
 
@@ -34,7 +35,7 @@ Rcpp::StringVector rcpp_wkt_unique_spherical( Rcpp::List wkt ) {
   return wktUnique;
 }
 
-
+// [[Rcpp::export]]
 Rcpp::StringVector rcpp_wkt_unique_geographic( Rcpp::List wkt ) {
   Rcpp::StringVector wktUnique( wkt.length() );
 
@@ -49,5 +50,5 @@ Rcpp::StringVector rcpp_wkt_unique_geographic( Rcpp::List wkt ) {
   }
   return wktUnique;
 }
-*/
+
 
