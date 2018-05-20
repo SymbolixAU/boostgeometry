@@ -7,7 +7,7 @@
 bg_correct(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{well-known text representation of a geometry}
 }
 \description{
 Corrects a geometry: all rings incorrectly oriented with respect to their expected

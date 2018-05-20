@@ -2,8 +2,8 @@
 #'
 #' Checks if two geometries cross
 #'
-#' @param x
-#' @param y
+#' @inheritParams bg_area
+#' @param x well-known text representation of a geometry
 #'
 #' @note
 #' supported geometries

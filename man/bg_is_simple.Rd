@@ -7,7 +7,7 @@
 bg_is_simple(x)
 }
 \arguments{
-\item{strategy}{}
+\item{x}{well-known text representation of a geometry}
 }
 \description{
 Checks if a geometry is simple

@@ -7,7 +7,11 @@
 bg_simplify(x, distance = 0.5, strategy = c("cartesian", "spherical"))
 }
 \arguments{
-\item{strategy}{}
+\item{x}{well-known text representation of a geometry}
+
+\item{distance}{distance between segments}
+
+\item{strategy}{coordinate strategy}
 }
 \description{
 Simplifies a geometry

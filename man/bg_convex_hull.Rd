@@ -7,7 +7,7 @@
 bg_convex_hull(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{well-known text representation of a geometry}
 }
 \description{
 BG Convex Hull

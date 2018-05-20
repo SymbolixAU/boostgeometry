@@ -2,8 +2,8 @@
 #'
 #' Calculates the area of a geometry
 #'
-#' @param x
-#' @param strategy
+#' @param x well-known text representation of a geometry
+#' @param strategy coordinate strategy
 #'
 #' @examples
 #'

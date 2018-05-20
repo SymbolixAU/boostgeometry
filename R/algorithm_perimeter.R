@@ -2,8 +2,7 @@
 #'
 #' Calculates the length of the perimeter of a geometry
 #'
-#' @param x
-#' @param strategy
+#' @inheritParams bg_area
 #'
 #' @note
 #'

@@ -8,9 +8,11 @@ bg_distance(x, y = NULL, strategy = c("cartesian", "spherical",
   "geographic"))
 }
 \arguments{
+\item{x}{well-known text representation of a geometry}
+
 \item{y}{if null, each element of \code{x} is assessed against every other element of \code{y}}
 
-\item{strategy}{}
+\item{strategy}{coordinate strategy}
 }
 \value{
 logical matrix where the rows are the geometries in \code{x} and the columns

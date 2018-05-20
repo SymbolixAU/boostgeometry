@@ -7,7 +7,9 @@
 bg_crosses(x, y, strategy = c("cartesian", "spherical", "geographic"))
 }
 \arguments{
-\item{y}{}
+\item{x}{well-known text representation of a geometry}
+
+\item{strategy}{coordinate strategy}
 }
 \description{
 Checks if two geometries cross

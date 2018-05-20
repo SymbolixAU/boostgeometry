@@ -2,9 +2,8 @@
 #'
 #' Calculates the distances between two sets of geometries
 #'
-#' @param x
+#' @inheritParams bg_area
 #' @param y if null, each element of \code{x} is assessed against every other element of \code{y}
-#' @param strategy
 #'
 #' @return logical matrix where the rows are the geometries in \code{x} and the columns
 #' are the geometries in \code{y}

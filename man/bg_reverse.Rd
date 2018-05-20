@@ -7,7 +7,7 @@
 bg_reverse(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{well-known text representation of a geometry}
 }
 \description{
 Reverses the points in a geometry

@@ -4,10 +4,10 @@
 \alias{bg_centroid}
 \title{BG Centroid}
 \usage{
-bg_centroid(wkt)
+bg_centroid(x)
 }
 \arguments{
-\item{strategy}{}
+\item{x}{well-known text representation of a geometry}
 }
 \description{
 Calculates the centroid of geometries

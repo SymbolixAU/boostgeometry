@@ -7,7 +7,7 @@
 bg_clear(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{well-known text representation of a geometry}
 }
 \description{
 Removes all points from a geometry. Points remain unchanged

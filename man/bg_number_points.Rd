@@ -7,7 +7,7 @@
 bg_number_points(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{well-known text representation of a geometry}
 }
 \description{
 Calculates the number of points of a geometry

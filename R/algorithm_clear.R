@@ -2,7 +2,7 @@
 #'
 #' Removes all points from a geometry. Points remain unchanged
 #'
-#' @param x
+#' @inheritParams bg_area
 #'
 #' @examples
 #' bg_clear("POLYGON((0 0,0 1,1 1,1 0,0 0))")

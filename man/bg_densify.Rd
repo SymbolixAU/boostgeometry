@@ -7,6 +7,10 @@
 bg_densify(x, strategy = c("cartesian", "spherical", "geographic"), distance)
 }
 \arguments{
+\item{x}{well-known text representation of a geometry}
+
+\item{strategy}{coordinate strategy}
+
 \item{distance}{numeric. The distance between segments (sequential coordinates)}
 }
 \description{

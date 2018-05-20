@@ -2,8 +2,7 @@
 #'
 #' Checks if a geometry is empty
 #'
-#' @param x
-#' @param strategy
+#' @inheritParams bg_area
 #'
 #' @examples
 #' bg_is_empty("MULTILINESTRING((0 0,0 10,10 0),(1 1,8 1,1 8))")
@@ -16,8 +15,7 @@ bg_is_empty <- function(x) rcpp_wkt_is_empty(x, "cartesian")
 #'
 #' Checks if a geometry is simple
 #'
-#' @param x
-#' @param strategy
+#' @inheritParams bg_area
 #'
 #' @examples
 #' bg_is_simple("MULTILINESTRING((0 0,0 10,10 10,10 0,0 0),(10 10,20 20))")
@@ -30,8 +28,7 @@ bg_is_simple <- function(x) rcpp_wkt_is_simple(x, "cartesian")
 #'
 #' Checks if a geometry is valid
 #'
-#' @param x
-#' @param strategy
+#' @inheritParams bg_area
 #'
 #' @examples
 #' bg_is_valid("POLYGON((0 0,0 10,10 10,10 0,0 0),(0 0,9 1,9 2,0 0),(0 0,2 9,1 9,0 0),(2 9,9 2,9 9,2 9))")

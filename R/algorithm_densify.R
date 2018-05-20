@@ -3,8 +3,7 @@
 #' Divides segments of a geometry if they are longer than the \code{distance} into
 #' smaller segments
 #'
-#' @param x
-#' @param strategy
+#' @inheritParams bg_area
 #' @param distance numeric. The distance between segments (sequential coordinates)
 #'
 #'

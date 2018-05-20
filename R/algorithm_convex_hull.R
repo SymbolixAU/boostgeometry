@@ -1,6 +1,6 @@
 #' BG Convex Hull
 #'
-#' @param x
+#' @inheritParams bg_area
 #'
 #' @note
 #' supported geometries for \code{x}

@@ -2,9 +2,8 @@
 #'
 #' Checks if the first geometry (\code{x}) is completely inside the second (\code{y}) geometry
 #'
-#' @param x
-#' @param y
-#' @param strategy
+#' @inheritParams bg_area
+#' @param y well-known text representation of a geometry
 #'
 #' @examples
 #' point <- "POINT(4 1)"

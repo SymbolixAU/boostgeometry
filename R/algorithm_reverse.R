@@ -2,7 +2,7 @@
 #'
 #' Reverses the points in a geometry
 #'
-#' @param x
+#' @inheritParams bg_area
 #'
 #' @examples
 #' bg_reverse("POLYGON((0 0,0 1,1 1,1 0,0 0))")

@@ -4,7 +4,7 @@
 #' orientation are reversed. All rings which do not have a closing point
 #' and are typsed as they should have one, the first point is appended.
 #'
-#' @param x
+#' @inheritParams bg_area
 #'
 #' @examples
 #' bg_correct("POLYGON((0 0, 0 1, 1 1, 1 0))")

@@ -7,7 +7,7 @@
 bg_number_geometries(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{well-known text representation of a geometry}
 }
 \description{
 Calculates the number of geometries of a multi-geometry

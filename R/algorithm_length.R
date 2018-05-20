@@ -2,8 +2,7 @@
 #'
 #' Calculates the length of a geometry
 #'
-#' @param x
-#' @param strategy
+#' @inheritParams bg_area
 #'
 #' @examples
 #' bg_length("LINESTRING(0 0,1 1,4 8,3 2)")

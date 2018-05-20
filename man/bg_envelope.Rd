@@ -7,7 +7,9 @@
 bg_envelope(x, strategy = c("cartesian", "spherical", "geographic"))
 }
 \arguments{
-\item{strategy}{}
+\item{x}{well-known text representation of a geometry}
+
+\item{strategy}{coordinate strategy}
 }
 \description{
 Calculates the envelope (bounding box) of a geometry

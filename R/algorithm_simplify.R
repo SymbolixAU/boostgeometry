@@ -2,9 +2,8 @@
 #'
 #' Simplifies a geometry
 #'
-#' @param x
-#' @param distance
-#' @param strategy
+#' @inheritParams bg_area
+#' @param distance distance between segments
 #'
 #' @note
 #'

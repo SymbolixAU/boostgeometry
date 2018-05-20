@@ -7,7 +7,7 @@
 bg_number_interior_rings(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{well-known text representation of a geometry}
 }
 \description{
 Calculates the number of interior rings of a geometry

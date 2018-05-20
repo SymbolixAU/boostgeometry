@@ -7,7 +7,11 @@
 bg_within(x, y, strategy = c("cartesian", "spherical", "geographic"))
 }
 \arguments{
-\item{strategy}{}
+\item{x}{well-known text representation of a geometry}
+
+\item{y}{well-known text representation of a geometry}
+
+\item{strategy}{coordinate strategy}
 }
 \value{
 logical matrix returning \code{TRUE} if \code{x} is within \code{y}
