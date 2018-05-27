@@ -17,6 +17,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_wkt_buffer_cartesian
+Rcpp::StringVector rcpp_wkt_buffer_cartesian(Rcpp::List wkt, double distance);
+RcppExport SEXP _boostgeometry_rcpp_wkt_buffer_cartesian(SEXP wktSEXP, SEXP distanceSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type wkt(wktSEXP);
+    Rcpp::traits::input_parameter< double >::type distance(distanceSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_wkt_buffer_cartesian(wkt, distance));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_wkt_centroid
 Rcpp::StringVector rcpp_wkt_centroid(Rcpp::List wkt);
 RcppExport SEXP _boostgeometry_rcpp_wkt_centroid(SEXP wktSEXP) {
@@ -457,6 +469,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_boostgeometry_rcpp_wkt_area", (DL_FUNC) &_boostgeometry_rcpp_wkt_area, 2},
+    {"_boostgeometry_rcpp_wkt_buffer_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_buffer_cartesian, 2},
     {"_boostgeometry_rcpp_wkt_centroid", (DL_FUNC) &_boostgeometry_rcpp_wkt_centroid, 1},
     {"_boostgeometry_rcpp_wkt_clear", (DL_FUNC) &_boostgeometry_rcpp_wkt_clear, 1},
     {"_boostgeometry_rcpp_wkt_convex_hull_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_convex_hull_cartesian, 1},

@@ -1,38 +1,21 @@
 
-# library(sf)
 # library(googlePolylines)
-# nc <- sf::st_read(system.file("shape/nc.shp", package="sf"))
-# nce <- encode(nc)
-# wnce <- polyline_wkt(nce)
 #
-# boostgeometry:::wkt_centroid(wnce$geometry)
+# line <- "LINESTRING(0 0, 1 1, 2 2)"
+# buff <- bg_buffer(line, distance = 1.0)
+#
+# sf_buff <- sf:::CPL_sfc_from_wkt(buff)
+# attr(sf_buff, 'bbox') <- c(xmin = 0, ymin = 0, xmax = 0, ymax = 0)
+# attr(sf_buff, 'precision') <- 0
+# sf_buff <- sf::st_sf(geometry = sf_buff)
+#
+# sf_line <- sf:::CPL_sfc_from_wkt(line)
+# attr(sf_line, 'bbox') <- c(xmin = 0, ymin = 0, xmax = 0, ymax = 0)
+# attr(sf_line, 'precision') <- 0
+# sf_line <- sf::st_sf(geometry = sf_line)
+#
+# plot(sf_line)
+# plot(sf_buff)
 
-# boostgeometry::bg_area(wnce$geometry)
-# boostgeometry::bg_centroid(wnce$geometry)
-#
-# sf::st_area(nc)
 
-## Benchmarking
-## Assumes the input data is in the correct format alread:
-## - bost :: wkt
-## - sf :: st_geometry
-##
-# nc <- sf::st_read(system.file("shape/nc.shp", package="sf"))
-# nce <- encode(nc)
-# wnce <- polyline_wkt(nce)
-#
-# library(microbenchmark)
-#
-# microbenchmark(
-#   boost = {
-#     bg_area(wnce$geometry, "geographic")
-#   },
-#   sf = {
-#     sf::st_area(nc)
-#   }
-# )
-# # Unit: milliseconds
-# #  expr       min        lq      mean    median        uq      max neval
-# # boost  6.637465  6.801843  7.655177  7.241235  8.087696 15.79231   100
-# #    sf 10.929847 11.742310 13.545155 12.649218 14.515820 24.43847   100
 

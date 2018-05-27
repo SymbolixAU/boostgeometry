@@ -5,6 +5,10 @@ rcpp_wkt_area <- function(wkt, strategy) {
     .Call(`_boostgeometry_rcpp_wkt_area`, wkt, strategy)
 }
 
+rcpp_wkt_buffer_cartesian <- function(wkt, distance) {
+    .Call(`_boostgeometry_rcpp_wkt_buffer_cartesian`, wkt, distance)
+}
+
 rcpp_wkt_centroid <- function(wkt) {
     .Call(`_boostgeometry_rcpp_wkt_centroid`, wkt)
 }

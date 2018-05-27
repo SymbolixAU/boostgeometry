@@ -1,9 +1,11 @@
-/*
+
 #ifndef R_BOOSTGEOMETRY_BUFFER_H
 #define R_BOOSTGEOMETRY_BUFFER_H
 
 #include "R_boostgeometry.h"
 
+namespace bgsb = boost::geometry::strategy::buffer;
+/*
 typedef boost::variant<
   //point_cartesian
    multi_point_cartesian
@@ -46,5 +48,5 @@ Variant read_geographic_buffer_wkt(std::string const& wkt) {
   return detail::read_any_helper<Variant>::call(wkt);
 }
 
-#endif
 */
+#endif
