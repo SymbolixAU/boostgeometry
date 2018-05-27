@@ -135,6 +135,9 @@ void densify_linestring_geographic(
   linestring_geographic line;
   linestring_geographic denseLine;
 
+//  bg::srs::spheroid<double> spheroid(6378137.0, 6356752.3142451793);
+//  bg::strategy::densify::geographic<> strategy(spheroid);
+
   bg::read_wkt( wkt[i], line );
   bg::densify( line, denseLine, distance );
 

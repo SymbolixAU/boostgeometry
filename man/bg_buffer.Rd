@@ -4,19 +4,19 @@
 \alias{bg_buffer}
 \title{BG Buffer}
 \usage{
-bg_buffer(x, distance = 1)
+bg_buffer(x, distance = 1, points_per_circle = 36)
 }
 \arguments{
 \item{x}{well-known text representation of a geometry}
 
-\item{distance}{}
+\item{points_per_circle}{}
 }
 \description{
 BG Buffer
 }
 \examples{
 
-bg_buffer("LINESTRING(0 0, 1 1, 2 2)")
+bg_buffer("LINESTRING(0 0,4 5,7 4,10 6)", distance = 1.0)
 
 
 }

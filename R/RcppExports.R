@@ -5,8 +5,8 @@ rcpp_wkt_area <- function(wkt, strategy) {
     .Call(`_boostgeometry_rcpp_wkt_area`, wkt, strategy)
 }
 
-rcpp_wkt_buffer_cartesian <- function(wkt, distance) {
-    .Call(`_boostgeometry_rcpp_wkt_buffer_cartesian`, wkt, distance)
+rcpp_wkt_buffer_cartesian <- function(wkt, distance, points_per_circle) {
+    .Call(`_boostgeometry_rcpp_wkt_buffer_cartesian`, wkt, distance, points_per_circle)
 }
 
 rcpp_wkt_centroid <- function(wkt) {
@@ -47,6 +47,10 @@ rcpp_wkt_densify_spherical <- function(wkt, distance) {
 
 rcpp_wkt_densify_geographic <- function(wkt, distance) {
     .Call(`_boostgeometry_rcpp_wkt_densify_geographic`, wkt, distance)
+}
+
+rcpp_wkt_difference <- function(wktOne, wktTwo, strategy) {
+    .Call(`_boostgeometry_rcpp_wkt_difference`, wktOne, wktTwo, strategy)
 }
 
 rcpp_wkt_distance_cartesian <- function(wktFrom, wktTo) {

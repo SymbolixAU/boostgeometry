@@ -10,13 +10,12 @@ using namespace Rcpp;
  * CARTESIAN
  */
 void buffer_point_cartesian(
-    Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance ) {
+    Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance, int& points_per_circle ) {
 
   point_cartesian point;
   multi_polygon_cartesian buffer_mp;
 
   typedef double coordinate_type;
-  int points_per_circle = 36;
   bgsb::distance_symmetric<coordinate_type> distance_strategy(buffer_distance);
   bgsb::join_round join_strategy(points_per_circle);
   bgsb::end_round end_strategy(points_per_circle);
@@ -33,13 +32,12 @@ void buffer_point_cartesian(
 
 
 void buffer_multi_point_cartesian(
-  Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance) {
+  Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance, int& points_per_circle ) {
 
   multi_point_cartesian point;
   multi_polygon_cartesian buffer_mp;
 
   typedef double coordinate_type;
-  int points_per_circle = 36;
   bgsb::distance_symmetric<coordinate_type> distance_strategy(buffer_distance);
   bgsb::join_round join_strategy(points_per_circle);
   bgsb::end_round end_strategy(points_per_circle);
@@ -55,13 +53,12 @@ void buffer_multi_point_cartesian(
 }
 
 void buffer_linestring_cartesian(
-  Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance ) {
+  Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance, int& points_per_circle ) {
 
   linestring_cartesian line;
   multi_polygon_cartesian buffer_mp;
 
   typedef double coordinate_type;
-  int points_per_circle = 36;
   bgsb::distance_symmetric<coordinate_type> distance_strategy(buffer_distance);
   bgsb::join_round join_strategy(points_per_circle);
   bgsb::end_round end_strategy(points_per_circle);
@@ -77,13 +74,12 @@ void buffer_linestring_cartesian(
 }
 
 void buffer_multi_linestring_cartesian(
-    Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance ) {
+    Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance, int& points_per_circle ) {
 
   multi_linestring_cartesian line;
   multi_polygon_cartesian buffer_mp;
 
   typedef double coordinate_type;
-  int points_per_circle = 36;
   bgsb::distance_symmetric<coordinate_type> distance_strategy(buffer_distance);
   bgsb::join_round join_strategy(points_per_circle);
   bgsb::end_round end_strategy(points_per_circle);
@@ -99,13 +95,12 @@ void buffer_multi_linestring_cartesian(
 }
 
 void buffer_polygon_cartesian(
-  Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance ) {
+  Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance, int& points_per_circle ) {
 
   polygon_cartesian line;
   multi_polygon_cartesian buffer_mp;
 
   typedef double coordinate_type;
-  int points_per_circle = 36;
   bgsb::distance_symmetric<coordinate_type> distance_strategy(buffer_distance);
   bgsb::join_round join_strategy(points_per_circle);
   bgsb::end_round end_strategy(points_per_circle);
@@ -121,13 +116,12 @@ void buffer_polygon_cartesian(
 }
 
 void buffer_multi_polygon_cartesian(
-    Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance ) {
+    Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktBuffer, double& buffer_distance, int& points_per_circle ) {
 
   multi_polygon_cartesian line;
   multi_polygon_cartesian buffer_mp;
 
   typedef double coordinate_type;
-  int points_per_circle = 36;
   bgsb::distance_symmetric<coordinate_type> distance_strategy(buffer_distance);
   bgsb::join_round join_strategy(points_per_circle);
   bgsb::end_round end_strategy(points_per_circle);
@@ -284,7 +278,7 @@ void buffer_multi_polygon_geographic(
 */
 
 // [[Rcpp::export]]
-Rcpp::StringVector rcpp_wkt_buffer_cartesian( Rcpp::List wkt, double distance) {
+Rcpp::StringVector rcpp_wkt_buffer_cartesian( Rcpp::List wkt, double distance, int points_per_circle) {
   Rcpp::StringVector wktBuffer( wkt.length() );
 
   std::string geomType;
@@ -294,17 +288,17 @@ Rcpp::StringVector rcpp_wkt_buffer_cartesian( Rcpp::List wkt, double distance) {
     geomType = geomFromWKT( thisWkt );
 
     if (geomType == "POINT" ) {
-      buffer_point_cartesian(wkt, i, wktBuffer, distance );
+      buffer_point_cartesian(wkt, i, wktBuffer, distance, points_per_circle );
     } else if ( geomType == "MULTIPOINT" ) {
-      buffer_multi_point_cartesian(wkt, i, wktBuffer, distance );
+      buffer_multi_point_cartesian(wkt, i, wktBuffer, distance, points_per_circle );
     } else if ( geomType == "LINESTRING" ) {
-      buffer_linestring_cartesian(wkt, i, wktBuffer, distance );
+      buffer_linestring_cartesian(wkt, i, wktBuffer, distance, points_per_circle );
     } else if ( geomType == "MULTILINESTRING" ) {
-      buffer_multi_linestring_cartesian(wkt, i, wktBuffer, distance );
+      buffer_multi_linestring_cartesian(wkt, i, wktBuffer, distance, points_per_circle );
     } else if ( geomType == "POLYGON" ) {
-      buffer_polygon_cartesian(wkt, i, wktBuffer, distance );
+      buffer_polygon_cartesian(wkt, i, wktBuffer, distance, points_per_circle );
     } else if ( geomType == "MULTIPOLYGON" ) {
-      buffer_multi_polygon_cartesian(wkt, i, wktBuffer, distance );
+      buffer_multi_polygon_cartesian(wkt, i, wktBuffer, distance, points_per_circle );
     }
   }
   return wktBuffer;
@@ -346,7 +340,7 @@ Rcpp::StringVector rcpp_wkt_buffer_spherical( Rcpp::List wkt, double distance) {
 }
 
 // [[Rcpp::export]]
-Rcpp::StringVector rcpp_wkt_buffer_geographic( Rcpp::List wkt) {
+Rcpp::StringVector rcpp_wkt_buffer_geographic( Rcpp::List wkt, , double distance, int points_per_circle) {
   Rcpp::StringVector wktBuffer( wkt.length() );
 
   std::string geomType;
@@ -358,7 +352,7 @@ Rcpp::StringVector rcpp_wkt_buffer_geographic( Rcpp::List wkt) {
     if (geomType == "POINT" || geomType == "MULTIPOINT") {
       //wktBuffer[i] = thisWkt;
     } else if (geomType == "LINESTRING") {
-      buffer_linestring_geographic(wkt, i, wktBuffer);
+      buffer_linestring_geographic(wkt, i, wktBuffer, distance, points_per_circle);
     } else if (geomType == "MULTILINESTRING") {
       //buffer_multi_linestring_geographic(wkt, i, wktBuffer, distance);
     } else if (geomType == "POLYGON") {
