@@ -10,6 +10,6 @@
 #'
 #'
 #' @export
-bg_buffer <- function(x, distance = 1.0, points_per_circle = 36) {
+bg_buffer <- function(x, distance = 1.0, points_per_circle = 90) {
   rcpp_wkt_buffer_cartesian(x, distance, points_per_circle)
 }
