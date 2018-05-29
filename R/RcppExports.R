@@ -17,6 +17,18 @@ rcpp_wkt_clear <- function(wkt) {
     .Call(`_boostgeometry_rcpp_wkt_clear`, wkt)
 }
 
+rcpp_wkt_comparable_distance_cartesian <- function(wktFrom, wktTo) {
+    .Call(`_boostgeometry_rcpp_wkt_comparable_distance_cartesian`, wktFrom, wktTo)
+}
+
+rcpp_wkt_comparable_distance_spherical <- function(wktFrom, wktTo) {
+    .Call(`_boostgeometry_rcpp_wkt_comparable_distance_spherical`, wktFrom, wktTo)
+}
+
+rcpp_wkt_comparable_distance_geographic <- function(wktFrom, wktTo) {
+    .Call(`_boostgeometry_rcpp_wkt_comparable_distance_geographic`, wktFrom, wktTo)
+}
+
 rcpp_wkt_convex_hull_cartesian <- function(wkt) {
     .Call(`_boostgeometry_rcpp_wkt_convex_hull_cartesian`, wkt)
 }

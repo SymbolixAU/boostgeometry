@@ -12,6 +12,9 @@
 #include <boost/variant.hpp>
 #include <boost/spirit/home/x3.hpp>
 
+#include <Rcpp.h>
+using namespace Rcpp;
+
 namespace bg = boost::geometry;
 namespace bgm = boost::geometry::model;
 
@@ -204,6 +207,9 @@ Variant read_any_wkt(std::string const& wkt, int geom_type) {
 
 std::string geomFromWKT(std::string& pl);
 
+
+void make_strategy(const char* strategy, int *tp = NULL);
+
 #define BG_Unknown      0
 #define BG_Cartesian    1
 #define BG_Spherical    2
@@ -217,9 +223,5 @@ std::string geomFromWKT(std::string& pl);
 #define MULTIPOLYGON    5
 #define BOX             6
 #define SEGMENT         7
-
-
-
-void make_strategy(const char* strategy, int *tp = NULL);
 
 #endif
