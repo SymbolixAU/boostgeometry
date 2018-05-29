@@ -15,7 +15,7 @@ void densify_linestring_cartesian(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 
@@ -29,7 +29,7 @@ void densify_multi_linestring_cartesian(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 
@@ -43,7 +43,7 @@ void densify_polygon_cartesian(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 
@@ -57,7 +57,7 @@ void densify_multi_polygon_cartesian(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 /*
@@ -77,7 +77,7 @@ void densify_linestring_spherical(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 
@@ -91,7 +91,7 @@ void densify_multi_linestring_spherical(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 
@@ -105,7 +105,7 @@ void densify_polygon_spherical(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 
@@ -119,7 +119,7 @@ void densify_multi_polygon_spherical(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 /*
@@ -135,14 +135,14 @@ void densify_linestring_geographic(
   linestring_geographic line;
   linestring_geographic denseLine;
 
-//  bg::srs::spheroid<double> spheroid(6378137.0, 6356752.3142451793);
-//  bg::strategy::densify::geographic<> strategy(spheroid);
+  bg::srs::spheroid<double> spheroid(6378137.0, 6356752.3142451793);
+  bg::strategy::densify::geographic<> strategy(spheroid);
 
   bg::read_wkt( wkt[i], line );
-  bg::densify( line, denseLine, distance );
+  bg::densify( line, denseLine, distance, strategy );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 
@@ -156,7 +156,7 @@ void densify_multi_linestring_geographic(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 
@@ -170,7 +170,7 @@ void densify_polygon_geographic(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 
@@ -184,7 +184,7 @@ void densify_multi_polygon_geographic(
   bg::densify( line, denseLine, distance );
 
   std::ostringstream os;
-  os << bg::wkt( denseLine );
+  os << std::setprecision(12) << bg::wkt( denseLine );
   wktDensify[i] = os.str();
 }
 /*

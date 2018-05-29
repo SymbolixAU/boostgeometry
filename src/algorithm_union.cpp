@@ -19,7 +19,7 @@ Rcpp::StringVector rcpp_wkt_union( Rcpp::List wkt ) {
     bg::union_(geom, mp, mp);
   }
   std::ostringstream os;
-  os << bg::wkt( mp );
+  os << std::setprecision(12) << bg::wkt( mp );
   wktUnion = os.str();
   return wktUnion;
 }

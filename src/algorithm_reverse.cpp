@@ -15,7 +15,7 @@ Rcpp::StringVector rcpp_wkt_reverse( Rcpp::List wkt, const char* strategy ) {
     geom = read_any_wkt(wkt[i], tp);
     std::ostringstream os;
     bg::reverse( geom );
-    os << bg::wkt( geom );
+    os << std::setprecision(12) << bg::wkt( geom );
     wktReverse[i] = os.str();
   }
   return wktReverse;

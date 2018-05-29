@@ -24,7 +24,7 @@ Rcpp::StringVector rcpp_wkt_difference( Rcpp::List wktOne, Rcpp::List wktTwo, co
 
     bg::difference( geom1, geom2, output );
     std::ostringstream os;
-    os << bg::wkt( output );
+    os << std::setprecision(12) << bg::wkt( output );
     wktDifference[i] = os.str();
   }
 

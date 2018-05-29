@@ -13,7 +13,7 @@ void unique_linestring_cartesian(Rcpp::List& wkt, size_t i, Rcpp::StringVector& 
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 
@@ -25,7 +25,7 @@ void unique_multi_linestring_cartesian(Rcpp::List& wkt, size_t i, Rcpp::StringVe
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 
@@ -37,7 +37,7 @@ void unique_polygon_cartesian(Rcpp::List& wkt, size_t i, Rcpp::StringVector& wkt
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 
@@ -49,7 +49,7 @@ void unique_multi_polygon_cartesian(Rcpp::List& wkt, size_t i, Rcpp::StringVecto
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 /*
@@ -67,7 +67,7 @@ void unique_linestring_spherical(Rcpp::List& wkt, size_t i, Rcpp::StringVector& 
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 
@@ -79,7 +79,7 @@ void unique_multi_linestring_spherical(Rcpp::List& wkt, size_t i, Rcpp::StringVe
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 
@@ -91,7 +91,7 @@ void unique_polygon_spherical(Rcpp::List& wkt, size_t i, Rcpp::StringVector& wkt
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 
@@ -103,7 +103,7 @@ void unique_multi_polygon_spherical(Rcpp::List& wkt, size_t i, Rcpp::StringVecto
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 /*
@@ -121,7 +121,7 @@ void unique_linestring_geographic(Rcpp::List& wkt, size_t i, Rcpp::StringVector&
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 
@@ -133,7 +133,7 @@ void unique_multi_linestring_geographic(Rcpp::List& wkt, size_t i, Rcpp::StringV
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 
@@ -145,7 +145,7 @@ void unique_polygon_geographic(Rcpp::List& wkt, size_t i, Rcpp::StringVector& wk
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 
@@ -157,7 +157,7 @@ void unique_multi_polygon_geographic(Rcpp::List& wkt, size_t i, Rcpp::StringVect
   bg::unique( line );
 
   std::ostringstream os;
-  os << bg::wkt( line );
+  os << std::setprecision(12) << bg::wkt( line );
   wktunique[i] = os.str();
 }
 /*

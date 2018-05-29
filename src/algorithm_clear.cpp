@@ -12,7 +12,7 @@ Rcpp::StringVector rcpp_wkt_clear( Rcpp::List wkt ) {
     geom = read_cartesian_wkt( wkt[i] );
     bg::clear( geom );
     std::ostringstream os;
-    os << bg::wkt( geom );
+    os << std::setprecision(12) << bg::wkt( geom );
     wktClear[i] = os.str();
   }
   return wktClear;

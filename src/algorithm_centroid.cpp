@@ -16,7 +16,7 @@ Rcpp::StringVector rcpp_wkt_centroid( Rcpp::List wkt ) {
     geom = read_cartesian_wkt( wkt[i] );
     bg::centroid( geom, pt );
     std::ostringstream os;
-    os << bg::wkt( pt );
+    os << std::setprecision(12) << bg::wkt( pt );
     wktCentroid[i] = os.str();
   }
   return wktCentroid;

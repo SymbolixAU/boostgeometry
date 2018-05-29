@@ -14,7 +14,7 @@ Rcpp::StringVector rcpp_wkt_convex_hull_cartesian( Rcpp::List wkt ) {
     geom = read_cartesian_convex_hull_wkt( wkt[i] );
     bg::convex_hull(geom, hull);
     std::ostringstream os;
-    os << bg::wkt( hull );
+    os << std::setprecision(12) << bg::wkt( hull );
     wktHull[i] = os.str();
   }
   return wktHull;
@@ -31,7 +31,7 @@ Rcpp::StringVector rcpp_wkt_convex_hull_spherical( Rcpp::List wkt ) {
     geom = read_spherical_convex_hull_wkt( wkt[i] );
     bg::convex_hull(geom, hull);
     std::ostringstream os;
-    os << bg::wkt( hull );
+    os << std::setprecision(12) << bg::wkt( hull );
     wktHull[i] = os.str();
   }
   return wktHull;
@@ -48,7 +48,7 @@ Rcpp::StringVector rcpp_wkt_convex_hull_geographic( Rcpp::List wkt ) {
     geom = read_geographic_convex_hull_wkt( wkt[i] );
     bg::convex_hull(geom, hull);
     std::ostringstream os;
-    os << bg::wkt( hull );
+    os << std::setprecision(12) << bg::wkt( hull );
     wktHull[i] = os.str();
   }
   return wktHull;

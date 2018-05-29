@@ -26,7 +26,7 @@ void buffer_point_cartesian(
   bg::buffer( point, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -48,7 +48,7 @@ void buffer_multi_point_cartesian(
   bg::buffer( point, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -69,7 +69,7 @@ void buffer_linestring_cartesian(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -90,7 +90,7 @@ void buffer_multi_linestring_cartesian(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -111,7 +111,7 @@ void buffer_polygon_cartesian(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -132,7 +132,7 @@ void buffer_multi_polygon_cartesian(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -154,7 +154,7 @@ void buffer_linestring_spherical(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -168,7 +168,7 @@ void buffer_multi_linestring_spherical(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -182,7 +182,7 @@ void buffer_polygon_spherical(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -196,7 +196,7 @@ void buffer_multi_polygon_spherical(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
  */
@@ -227,7 +227,7 @@ void buffer_linestring_geographic(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -241,7 +241,7 @@ void buffer_multi_linestring_geographic(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -255,7 +255,7 @@ void buffer_polygon_geographic(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
 
@@ -269,7 +269,7 @@ void buffer_multi_polygon_geographic(
   bg::buffer( line, buffer_mp, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
 
   std::ostringstream os;
-  os << bg::wkt( buffer_mp );
+  os << std::setprecision(12) << bg::wkt( buffer_mp );
   wktBuffer[i] = os.str();
 }
  */
@@ -394,7 +394,7 @@ Rcpp::StringVector rcpp_wkt_buffer_cartesian( Rcpp::List wkt, double distance) {
     //bg::read_wkt( wkt[i], mp );
     bg::buffer( mp, result, distance_strategy, side_strategy, join_strategy, end_strategy, circle_strategy );
     std::ostringstream os;
-    os << bg::wkt( result );
+    os << std::setprecision(12) << bg::wkt( result );
     wktBuffer[i] = os.str();
   }
   return wktBuffer;

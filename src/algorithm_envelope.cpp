@@ -14,7 +14,7 @@ Rcpp::StringVector rcpp_wkt_envelope_cartesian( Rcpp::List wkt ) {
     geom = read_cartesian_wkt( wkt[i] );
     bg::envelope( geom, box );
     std::ostringstream os;
-    os << bg::wkt( box );
+    os << std::setprecision(12) << bg::wkt( box );
     wktEnvelope[i] = os.str();
   }
   return wktEnvelope;
@@ -31,7 +31,7 @@ Rcpp::StringVector rcpp_wkt_envelope_spherical( Rcpp::List wkt ) {
     geom = read_spherical_wkt( wkt[i] );
     bg::envelope( geom, box );
     std::ostringstream os;
-    os << bg::wkt( box );
+    os << std::setprecision(12) << bg::wkt( box );
     wktEnvelope[i] = os.str();
   }
   return wktEnvelope;
@@ -48,7 +48,7 @@ Rcpp::StringVector rcpp_wkt_envelope_geographic( Rcpp::List wkt ) {
     geom = read_geographic_wkt( wkt[i] );
     bg::envelope( geom, box );
     std::ostringstream os;
-    os << bg::wkt( box );
+    os << std::setprecision(12) << bg::wkt( box );
     wktEnvelope[i] = os.str();
   }
   return wktEnvelope;

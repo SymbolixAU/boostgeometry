@@ -15,7 +15,7 @@ Rcpp::StringVector rcpp_wkt_simplify_cartesian( Rcpp::List wkt, double distance)
     geom = read_cartesian_simplify_wkt( wkt[i] );
     std::ostringstream os;
     bg::simplify(geom, geomSimplified, distance);
-    os << bg::wkt( geomSimplified );
+    os << std::setprecision(12) << bg::wkt( geomSimplified );
     wktSimplify[i] = os.str();
   }
   return wktSimplify;
@@ -33,7 +33,7 @@ Rcpp::StringVector rcpp_wkt_simplify_spherical( Rcpp::List wkt, double distance)
     geom = read_spherical_simplify_wkt( wkt[i] );
     std::ostringstream os;
     bg::simplify(geom, geomSimplified, distance);
-    os << bg::wkt( geomSimplified );
+    os << std::setprecision(12) << bg::wkt( geomSimplified );
     wktSimplify[i] = os.str();
   }
   return wktSimplify;
@@ -50,7 +50,7 @@ Rcpp::StringVector rcpp_wkt_simplify_geographic( Rcpp::List wkt, double distance
     geom = read_geographic_simplify_wkt( wkt[i] );
     std::ostringstream os;
     bg::simplify(geom, geomSimplified, distance);
-    os << bg::wkt( geomSimplified );
+    os << std::setprecision(12) << bg::wkt( geomSimplified );
     wktSimplify[i] = os.str();
   }
   return wktSimplify;

@@ -4,7 +4,7 @@
 \alias{bg_buffer}
 \title{BG Buffer}
 \usage{
-bg_buffer(x, distance = 1, points_per_circle = 36)
+bg_buffer(x, distance = 1, points_per_circle = 90)
 }
 \arguments{
 \item{x}{well-known text representation of a geometry}
