@@ -17,6 +17,15 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// area_test
+void area_test();
+RcppExport SEXP _boostgeometry_area_test() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    area_test();
+    return R_NilValue;
+END_RCPP
+}
 // rcpp_wkt_buffer_cartesian
 Rcpp::StringVector rcpp_wkt_buffer_cartesian(Rcpp::List wkt, double distance, int points_per_circle);
 RcppExport SEXP _boostgeometry_rcpp_wkt_buffer_cartesian(SEXP wktSEXP, SEXP distanceSEXP, SEXP points_per_circleSEXP) {
@@ -519,6 +528,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_boostgeometry_rcpp_wkt_area", (DL_FUNC) &_boostgeometry_rcpp_wkt_area, 2},
+    {"_boostgeometry_area_test", (DL_FUNC) &_boostgeometry_area_test, 0},
     {"_boostgeometry_rcpp_wkt_buffer_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_buffer_cartesian, 3},
     {"_boostgeometry_rcpp_wkt_centroid", (DL_FUNC) &_boostgeometry_rcpp_wkt_centroid, 1},
     {"_boostgeometry_rcpp_wkt_clear", (DL_FUNC) &_boostgeometry_rcpp_wkt_clear, 1},

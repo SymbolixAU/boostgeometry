@@ -71,7 +71,7 @@ private:
 }
 
 //typedef boost::tuple<double, double> generic_point;
-typedef bgm::point< float, 2, bg::cs::cartesian > point_cartesian;
+typedef bgm::point< double, 2, bg::cs::cartesian > point_cartesian;
 typedef bgm::multi_point<point_cartesian> multi_point_cartesian;
 typedef bgm::linestring<point_cartesian> linestring_cartesian;
 typedef bgm::multi_linestring<bgm::linestring<point_cartesian> > multi_linestring_cartesian;
@@ -80,7 +80,7 @@ typedef bgm::multi_polygon<bgm::polygon<point_cartesian> > multi_polygon_cartesi
 typedef bgm::segment<point_cartesian> segment_cartesian;
 typedef bgm::box<point_cartesian> box_cartesian;
 
-typedef bgm::point< float, 2, bg::cs::spherical_equatorial< bg::degree > > point_spherical;
+typedef bgm::point< double, 2, bg::cs::spherical_equatorial< bg::degree > > point_spherical;
 typedef bgm::multi_point<point_spherical> multi_point_spherical;
 typedef bgm::linestring<point_spherical> linestring_spherical;
 typedef bgm::multi_linestring<bgm::linestring<point_spherical> > multi_linestring_spherical;
@@ -89,7 +89,7 @@ typedef bgm::multi_polygon<bgm::polygon<point_spherical> > multi_polygon_spheric
 typedef bgm::segment<point_spherical> segment_spherical;
 typedef bgm::box<point_spherical> box_spherical;
 
-typedef bgm::point< float, 2, bg::cs::geographic< bg::degree > > point_geographic;
+typedef bgm::point< double, 2, bg::cs::geographic< bg::degree > > point_geographic;
 typedef bgm::multi_point<point_geographic> multi_point_geographic;
 typedef bgm::linestring<point_geographic> linestring_geographic;
 typedef bgm::multi_linestring<bgm::linestring<point_geographic> > multi_linestring_geographic;

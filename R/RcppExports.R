@@ -5,6 +5,10 @@ rcpp_wkt_area <- function(wkt, strategy) {
     .Call(`_boostgeometry_rcpp_wkt_area`, wkt, strategy)
 }
 
+area_test <- function() {
+    invisible(.Call(`_boostgeometry_area_test`))
+}
+
 rcpp_wkt_buffer_cartesian <- function(wkt, distance, points_per_circle) {
     .Call(`_boostgeometry_rcpp_wkt_buffer_cartesian`, wkt, distance, points_per_circle)
 }
