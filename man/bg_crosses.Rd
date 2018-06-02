@@ -9,6 +9,8 @@ bg_crosses(x, y, strategy = c("cartesian", "spherical", "geographic"))
 \arguments{
 \item{x}{well-known text representation of a geometry}
 
+\item{y}{well-known text representation of a geometry}
+
 \item{strategy}{coordinate strategy}
 }
 \description{

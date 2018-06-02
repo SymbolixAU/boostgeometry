@@ -3,7 +3,7 @@
 #' Checks if two geometries cross
 #'
 #' @inheritParams bg_area
-#' @param x well-known text representation of a geometry
+#' @param y well-known text representation of a geometry
 #'
 #' @note
 #' supported geometries
@@ -17,7 +17,7 @@
 #'
 #' @export
 bg_crosses <- function(x, y, strategy = c("cartesian", "spherical", "geographic")) {
-  ## TODO(other coordinate strategies)
+
   strategy <- match.arg(strategy)
   switch(
     strategy

@@ -57,6 +57,7 @@ template <typename Variant = CartesianCrossesTwo>
 Variant read_cartesian_crosses_two_wkt(std::string const& wkt) {
   return detail::read_any_helper<Variant>::call(wkt);
 }
+
 template <typename Variant = SphericalCrossesOne>
 Variant read_spherical_crosses_one_wkt(std::string const& wkt) {
   return detail::read_any_helper<Variant>::call(wkt);

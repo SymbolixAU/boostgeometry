@@ -8,6 +8,27 @@ namespace bgm = boost::geometry::model;
 
 // https://www.boost.org/doc/libs/1_67_0/libs/geometry/doc/html/geometry/reference/algorithms/equals/equals_2.html
 
+typedef boost::variant<
+  linestring_cartesian
+  , multi_linestring_cartesian
+> CartesianLineEquals;
+
+typedef boost::variant<
+  polygon_cartesian
+  , multi_polygon_cartesian
+> CartesianPolygonEquals;
+
+
+template <typename Variant = CartesianLineEquals>
+Variant read_cartesian_equals_line_wkt(std::string const& wkt) {
+  return detail::read_any_helper<Variant>::call(wkt);
+}
+
+template <typename Variant = CartesianPolygonEquals>
+Variant read_cartesian_equals_polygon_wkt(std::string const& wkt) {
+  return detail::read_any_helper<Variant>::call(wkt);
+}
+
 /*
 typedef boost::variant<
   point_cartesian
