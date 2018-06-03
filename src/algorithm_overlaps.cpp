@@ -2,7 +2,7 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-
+/*
 bool isOverlapValidComparison(std::string& thisWktOne, std::string& thisWktTwo) {
 
   if (thisWktOne == thisWktTwo) {
@@ -22,11 +22,13 @@ bool isOverlapValidComparison(std::string& thisWktOne, std::string& thisWktTwo) 
   }
   return false;
 }
-
+*/
 
 /*
  * CARTESIAN
  */
+
+/*
 void overlap_point_cartesian(
   std::string& geomTypeOne, std::string& wktOne, Rcpp::List& wktTwo, size_t i, Rcpp::LogicalMatrix& wktOverlaps) {
 
@@ -39,14 +41,11 @@ void overlap_point_cartesian(
 
     if ( isOverlapValidComparison(geomTypeOne, geomTypeTwo) ) {
       CartesianPointOverlaps overlapPoint = read_cartesian_overlaps_point_wkt( wktTwo[j] );
-      //wktOverlaps(i, j) = bg::overlaps( point, overlapPoint );
+      wktOverlaps(i, j) = bg::overlaps( point, overlapPoint );
     }
   }
-
 }
 
-
-/*
 void overlap_linestring_cartesian(
     Rcpp::List& wkt, size_t i, Rcpp::StringVector& wktDensify, double& distance) {
 
@@ -80,13 +79,14 @@ void overlap_polygon_cartesian(
  * END CARTESIAN
  */
 
-
+/*
 // [[Rcpp::export]]
 Rcpp::LogicalMatrix rcpp_wkt_overlaps_cartesian( Rcpp::List wktOne, Rcpp::List wktTwo ) {
   Rcpp::LogicalMatrix wktOverlaps( wktOne.length(), wktTwo.length() );
 
   std::string geomTypeOne;
   std::string geomTypeTwo;
+
 
   for (size_t i = 0; i < wktOne.length(); i++ ) {
     std::string thisWktOne = wktOne[i];
@@ -97,7 +97,6 @@ Rcpp::LogicalMatrix rcpp_wkt_overlaps_cartesian( Rcpp::List wktOne, Rcpp::List w
     }
 
 
-    /*
     for (size_t j = 0; j < wktTwo.length(); j++) {
       std::string thisWktTwo = wktTwo[j];
       geomTypeTwo = geomFromWKT( thisWktTwo );
@@ -115,10 +114,11 @@ Rcpp::LogicalMatrix rcpp_wkt_overlaps_cartesian( Rcpp::List wktOne, Rcpp::List w
         wktOverlaps(i, j) = false;
       }
     }
-    */
   }
+
   return wktOverlaps;
 }
+*/
 
 /*
 Rcpp::LogicalMatrix rcpp_wkt_touches_spherical( Rcpp::List wktOne, Rcpp::List wktTwo ) {

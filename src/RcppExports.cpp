@@ -5,15 +5,15 @@
 
 using namespace Rcpp;
 
-// rcpp_wkt_overlaps_cartesian
-Rcpp::LogicalMatrix rcpp_wkt_overlaps_cartesian(Rcpp::List wktOne, Rcpp::List wktTwo);
-RcppExport SEXP _boostgeometry_rcpp_wkt_overlaps_cartesian(SEXP wktOneSEXP, SEXP wktTwoSEXP) {
+// rcpp_wkt_disjoint
+Rcpp::LogicalMatrix rcpp_wkt_disjoint(Rcpp::List wktOne, Rcpp::List wktTwo);
+RcppExport SEXP _boostgeometry_rcpp_wkt_disjoint(SEXP wktOneSEXP, SEXP wktTwoSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::List >::type wktOne(wktOneSEXP);
     Rcpp::traits::input_parameter< Rcpp::List >::type wktTwo(wktTwoSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_wkt_overlaps_cartesian(wktOne, wktTwo));
+    rcpp_result_gen = Rcpp::wrap(rcpp_wkt_disjoint(wktOne, wktTwo));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -578,7 +578,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_boostgeometry_rcpp_wkt_overlaps_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_overlaps_cartesian, 2},
+    {"_boostgeometry_rcpp_wkt_disjoint", (DL_FUNC) &_boostgeometry_rcpp_wkt_disjoint, 2},
     {"_boostgeometry_rcpp_wkt_area", (DL_FUNC) &_boostgeometry_rcpp_wkt_area, 2},
     {"_boostgeometry_rcpp_wkt_buffer_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_buffer_cartesian, 3},
     {"_boostgeometry_rcpp_wkt_centroid", (DL_FUNC) &_boostgeometry_rcpp_wkt_centroid, 1},
