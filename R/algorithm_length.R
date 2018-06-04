@@ -4,6 +4,11 @@
 #'
 #' @inheritParams bg_area
 #'
+#' @note
+#' points - returns 0
+#' lines - returns the length
+#' areal - returns 0
+#'
 #' @examples
 #' bg_length("LINESTRING(0 0,1 1,4 8,3 2)")
 #' bg_length("LINESTRING(0 0,1 1,4 8,3 2)", "geographic")

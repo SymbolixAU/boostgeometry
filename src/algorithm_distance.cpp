@@ -2,6 +2,25 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+
+// [[Rcpp::export]]
+Rcpp::NumericMatrix rcpp_distance_test(Rcpp::List wktFrom, Rcpp::List wktTo) {
+  Rcpp::NumericMatrix wktDistance(wktFrom.length(), wktTo.length());
+  multi_polygon_geographic geomFrom;
+  multi_polygon_geographic geomTo;
+
+  for (size_t i = 0; i < wktFrom.length(); i++) {
+    bg::read_wkt( wktFrom[i], geomFrom );
+
+    for (size_t j = 0; j < wktTo.length(); j++) {
+      bg::read_wkt( wktTo[j], geomTo );
+      wktDistance(i, j) = bg::distance(geomFrom, geomTo);
+    }
+  }
+  return wktDistance;
+}
+
+
 // [[Rcpp::export]]
 Rcpp::NumericMatrix rcpp_wkt_distance_cartesian( Rcpp::List wktFrom, Rcpp::List wktTo ) {
   Rcpp::NumericMatrix wktDistance(wktFrom.length(), wktTo.length());

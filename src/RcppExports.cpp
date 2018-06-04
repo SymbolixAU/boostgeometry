@@ -208,6 +208,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_distance_test
+Rcpp::NumericMatrix rcpp_distance_test(Rcpp::List wktFrom, Rcpp::List wktTo);
+RcppExport SEXP _boostgeometry_rcpp_distance_test(SEXP wktFromSEXP, SEXP wktToSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktFrom(wktFromSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktTo(wktToSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_distance_test(wktFrom, wktTo));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_wkt_distance_cartesian
 Rcpp::NumericMatrix rcpp_wkt_distance_cartesian(Rcpp::List wktFrom, Rcpp::List wktTo);
 RcppExport SEXP _boostgeometry_rcpp_wkt_distance_cartesian(SEXP wktFromSEXP, SEXP wktToSEXP) {
@@ -595,6 +607,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_boostgeometry_rcpp_wkt_densify_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_densify_spherical, 2},
     {"_boostgeometry_rcpp_wkt_densify_geographic", (DL_FUNC) &_boostgeometry_rcpp_wkt_densify_geographic, 2},
     {"_boostgeometry_rcpp_wkt_difference", (DL_FUNC) &_boostgeometry_rcpp_wkt_difference, 3},
+    {"_boostgeometry_rcpp_distance_test", (DL_FUNC) &_boostgeometry_rcpp_distance_test, 2},
     {"_boostgeometry_rcpp_wkt_distance_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_distance_cartesian, 2},
     {"_boostgeometry_rcpp_wkt_distance_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_distance_spherical, 2},
     {"_boostgeometry_rcpp_wkt_distance_geographic", (DL_FUNC) &_boostgeometry_rcpp_wkt_distance_geographic, 2},

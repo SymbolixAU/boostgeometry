@@ -1,4 +1,5 @@
 ## We want C++11 as it gets us 'long long' as well
+## We want C++14 to use boost::spirit::x3
 CXX_STD = CXX14
 
 ## We need the headers exported via inst/include

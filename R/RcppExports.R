@@ -69,6 +69,10 @@ rcpp_wkt_difference <- function(wktOne, wktTwo, strategy) {
     .Call(`_boostgeometry_rcpp_wkt_difference`, wktOne, wktTwo, strategy)
 }
 
+rcpp_distance_test <- function(wktFrom, wktTo) {
+    .Call(`_boostgeometry_rcpp_distance_test`, wktFrom, wktTo)
+}
+
 rcpp_wkt_distance_cartesian <- function(wktFrom, wktTo) {
     .Call(`_boostgeometry_rcpp_wkt_distance_cartesian`, wktFrom, wktTo)
 }

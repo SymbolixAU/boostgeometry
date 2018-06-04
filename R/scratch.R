@@ -1,11 +1,39 @@
 
 
-### Benchmarking
+# ## Benchmarking
 # library(microbenchmark)
 #
 # library(sf)
 # nc <- st_read(system.file("shape/nc.shp", package="sf"))
 # wkt <- sf::st_as_text(nc$geometry)
+
+## TODO(distance)
+## - re-write the distnace .cpp to just read and compare MULTIPOLYGONS (the `nc` obj)
+## - to see if it speeds up
+## - if it's quicker, then my 'read_wkt' variant stuff may be slow
+
+#
+# bg_touches(wkt, wkt)
+#
+# pred <- sf::st_touches(nc)
+
+# microbenchmark(
+#   bg = {
+#     d <- bg_distance(wkt, strategy = "geographic")
+#   },
+#   bg_test = {
+#     d <- boostgeometry:::rcpp_distance_test(wkt, wkt)
+#   },
+#   sf = {
+#     d <- sf::st_distance(nc)
+#   },
+#   times = 3
+# )
+
+# Unit: seconds
+# expr      min       lq      mean    median        uq       max neval
+#   bg 13.99757 14.15848 14.319665 14.319391 14.480715 14.642039     3
+#   sf  8.04796  8.16323  8.254405  8.278499  8.357628  8.436756     3
 
 # microbenchmark(
 #   sf = {
