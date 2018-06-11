@@ -7,6 +7,21 @@
 # nc <- st_read(system.file("shape/nc.shp", package="sf"))
 # wkt <- sf::st_as_text(nc$geometry)
 
+# microbenchmark(
+#   bg = {
+#     bg_disjoint(x = wkt)
+#   },
+#   sf = {
+#     sf::st_disjoint(nc)
+#   },
+#   times = 3
+# )
+#
+# Unit: milliseconds
+# expr        min         lq      mean     median        uq       max neval
+# bg 432.578161 433.916356 437.41059 435.254551 439.82681 444.39906     3
+# sf   9.168647   9.376831  10.26191   9.585014  10.80853  12.03205     3
+
 ## TODO(distance)
 ## - re-write the distnace .cpp to just read and compare MULTIPOLYGONS (the `nc` obj)
 ## - to see if it speeds up

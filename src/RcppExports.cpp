@@ -5,18 +5,6 @@
 
 using namespace Rcpp;
 
-// rcpp_wkt_disjoint
-Rcpp::LogicalMatrix rcpp_wkt_disjoint(Rcpp::List wktOne, Rcpp::List wktTwo);
-RcppExport SEXP _boostgeometry_rcpp_wkt_disjoint(SEXP wktOneSEXP, SEXP wktTwoSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< Rcpp::List >::type wktOne(wktOneSEXP);
-    Rcpp::traits::input_parameter< Rcpp::List >::type wktTwo(wktTwoSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_wkt_disjoint(wktOne, wktTwo));
-    return rcpp_result_gen;
-END_RCPP
-}
 // rcpp_wkt_area
 Rcpp::NumericVector rcpp_wkt_area(Rcpp::List wkt, const char* strategy);
 RcppExport SEXP _boostgeometry_rcpp_wkt_area(SEXP wktSEXP, SEXP strategySEXP) {
@@ -208,6 +196,42 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_wkt_disjoint_cartesian
+Rcpp::LogicalMatrix rcpp_wkt_disjoint_cartesian(Rcpp::List wktOne, Rcpp::List wktTwo);
+RcppExport SEXP _boostgeometry_rcpp_wkt_disjoint_cartesian(SEXP wktOneSEXP, SEXP wktTwoSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktOne(wktOneSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktTwo(wktTwoSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_wkt_disjoint_cartesian(wktOne, wktTwo));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_wkt_disjoint_spherical
+Rcpp::LogicalMatrix rcpp_wkt_disjoint_spherical(Rcpp::List wktOne, Rcpp::List wktTwo);
+RcppExport SEXP _boostgeometry_rcpp_wkt_disjoint_spherical(SEXP wktOneSEXP, SEXP wktTwoSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktOne(wktOneSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktTwo(wktTwoSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_wkt_disjoint_spherical(wktOne, wktTwo));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_wkt_disjoint_geographic
+Rcpp::LogicalMatrix rcpp_wkt_disjoint_geographic(Rcpp::List wktOne, Rcpp::List wktTwo);
+RcppExport SEXP _boostgeometry_rcpp_wkt_disjoint_geographic(SEXP wktOneSEXP, SEXP wktTwoSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktOne(wktOneSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktTwo(wktTwoSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_wkt_disjoint_geographic(wktOne, wktTwo));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_distance_test
 Rcpp::NumericMatrix rcpp_distance_test(Rcpp::List wktFrom, Rcpp::List wktTo);
 RcppExport SEXP _boostgeometry_rcpp_distance_test(SEXP wktFromSEXP, SEXP wktToSEXP) {
@@ -298,6 +322,30 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< Rcpp::List >::type wktOne(wktOneSEXP);
     Rcpp::traits::input_parameter< Rcpp::List >::type wktTwo(wktTwoSEXP);
     rcpp_result_gen = Rcpp::wrap(rcpp_wkt_equals_cartesian(wktOne, wktTwo));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_wkt_intersects_cartesian
+Rcpp::LogicalMatrix rcpp_wkt_intersects_cartesian(Rcpp::List wktOne, Rcpp::List wktTwo);
+RcppExport SEXP _boostgeometry_rcpp_wkt_intersects_cartesian(SEXP wktOneSEXP, SEXP wktTwoSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktOne(wktOneSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktTwo(wktTwoSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_wkt_intersects_cartesian(wktOne, wktTwo));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_wkt_intersects_spherical
+Rcpp::LogicalMatrix rcpp_wkt_intersects_spherical(Rcpp::List wktOne, Rcpp::List wktTwo);
+RcppExport SEXP _boostgeometry_rcpp_wkt_intersects_spherical(SEXP wktOneSEXP, SEXP wktTwoSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktOne(wktOneSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktTwo(wktTwoSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_wkt_intersects_spherical(wktOne, wktTwo));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -590,7 +638,6 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_boostgeometry_rcpp_wkt_disjoint", (DL_FUNC) &_boostgeometry_rcpp_wkt_disjoint, 2},
     {"_boostgeometry_rcpp_wkt_area", (DL_FUNC) &_boostgeometry_rcpp_wkt_area, 2},
     {"_boostgeometry_rcpp_wkt_buffer_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_buffer_cartesian, 3},
     {"_boostgeometry_rcpp_wkt_centroid", (DL_FUNC) &_boostgeometry_rcpp_wkt_centroid, 1},
@@ -607,6 +654,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_boostgeometry_rcpp_wkt_densify_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_densify_spherical, 2},
     {"_boostgeometry_rcpp_wkt_densify_geographic", (DL_FUNC) &_boostgeometry_rcpp_wkt_densify_geographic, 2},
     {"_boostgeometry_rcpp_wkt_difference", (DL_FUNC) &_boostgeometry_rcpp_wkt_difference, 3},
+    {"_boostgeometry_rcpp_wkt_disjoint_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_disjoint_cartesian, 2},
+    {"_boostgeometry_rcpp_wkt_disjoint_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_disjoint_spherical, 2},
+    {"_boostgeometry_rcpp_wkt_disjoint_geographic", (DL_FUNC) &_boostgeometry_rcpp_wkt_disjoint_geographic, 2},
     {"_boostgeometry_rcpp_distance_test", (DL_FUNC) &_boostgeometry_rcpp_distance_test, 2},
     {"_boostgeometry_rcpp_wkt_distance_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_distance_cartesian, 2},
     {"_boostgeometry_rcpp_wkt_distance_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_distance_spherical, 2},
@@ -615,6 +665,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_boostgeometry_rcpp_wkt_envelope_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_envelope_spherical, 1},
     {"_boostgeometry_rcpp_wkt_envelope_geographic", (DL_FUNC) &_boostgeometry_rcpp_wkt_envelope_geographic, 1},
     {"_boostgeometry_rcpp_wkt_equals_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_equals_cartesian, 2},
+    {"_boostgeometry_rcpp_wkt_intersects_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_intersects_cartesian, 2},
+    {"_boostgeometry_rcpp_wkt_intersects_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_intersects_spherical, 2},
     {"_boostgeometry_rcpp_wkt_is_empty", (DL_FUNC) &_boostgeometry_rcpp_wkt_is_empty, 2},
     {"_boostgeometry_rcpp_wkt_is_simple", (DL_FUNC) &_boostgeometry_rcpp_wkt_is_simple, 2},
     {"_boostgeometry_rcpp_wkt_is_valid", (DL_FUNC) &_boostgeometry_rcpp_wkt_is_valid, 2},

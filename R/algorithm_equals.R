@@ -1,6 +1,6 @@
 #' BG Equals
 #'
-#' Checks if geometries are spatially equal
+#' spatial relations: checks if geometries are spatially equal
 #'
 #' @inheritParams bg_area
 #' @param y well-known text representation of a geometry
@@ -16,5 +16,8 @@
 #'
 #' @return Logical matrix returning \code{TRUE} if \code{x} equals \code{y}
 #'
+#'
 #' @export
 bg_equals <- function(x, y) rcpp_wkt_equals_cartesian(x, y)
+
+

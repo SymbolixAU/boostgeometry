@@ -2,6 +2,8 @@
 #'
 #' Calculates the distances between two sets of geometries
 #'
+#' @notes geogrpahic multiponts not supported
+#'
 #' @inheritParams bg_area
 #' @param y if null, each element of \code{x} is assessed against every other element of \code{y}
 #'

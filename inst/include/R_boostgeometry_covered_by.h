@@ -1,5 +1,7 @@
-#ifndef R_BOOSTGEOMETRY_DISJOINT_H
-#define R_BOOSTGEOMETRY_DISJOINT_H
+
+/*
+#ifndef R_BOOSTGEOMETRY_COVERED_BY_H
+#define R_BOOSTGEOMETRY_COVERED_BY_H
 
 #include "R_boostgeometry.h"
 
@@ -13,7 +15,7 @@ typedef boost::variant<
   , multi_linestring_cartesian
   , polygon_cartesian
   , multi_polygon_cartesian
-> CartesianDisjoint;
+> CartesianCoveredBy;
 
 typedef boost::variant<
   point_spherical
@@ -22,7 +24,7 @@ typedef boost::variant<
   , multi_linestring_spherical
   , polygon_spherical
   , multi_polygon_spherical
-> SphericalDisjoint;
+> SphericalCoveredBy;
 
 typedef boost::variant<
   point_geographic
@@ -31,21 +33,22 @@ typedef boost::variant<
   , multi_linestring_geographic
   , polygon_geographic
   , multi_polygon_geographic
-> GeographicDisjoint;
+> GeographicCoveredBy;
 
-template <typename Variant = CartesianDisjoint>
-Variant read_cartesian_disjoint_wkt(std::string const& wkt) {
+template <typename Variant = CartesianCoveredBy>
+Variant read_cartesian_covere_by_wkt(std::string const& wkt) {
   return detail::read_any_helper<Variant>::call(wkt);
 }
 
-template <typename Variant = SphericalDisjoint>
-Variant read_spherical_disjoint_wkt(std::string const& wkt) {
+template <typename Variant = SphericalCoveredBy>
+Variant read_spherical_covered_by_wkt(std::string const& wkt) {
   return detail::read_any_helper<Variant>::call(wkt);
 }
 
-template <typename Variant = GeographicDisjoint>
-Variant read_geographic_disjoint_wkt(std::string const& wkt) {
+template <typename Variant = GeographicCoveredBy>
+Variant read_geographic_covered_by_wkt(std::string const& wkt) {
   return detail::read_any_helper<Variant>::call(wkt);
 }
+*/
 
 #endif

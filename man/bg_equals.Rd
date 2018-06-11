@@ -15,7 +15,7 @@ bg_equals(x, y)
 Logical matrix returning \code{TRUE} if \code{x} equals \code{y}
 }
 \description{
-Checks if geometries are spatially equal
+spatial relations: checks if geometries are spatially equal
 }
 \examples{
 
