@@ -3,6 +3,7 @@
 #define R_BOOSTGEOMETRY_H
 
 #include <boost/geometry.hpp>
+#include <boost/geometry/index/rtree.hpp>
 
 #include <iostream>
 
@@ -17,6 +18,7 @@ using namespace Rcpp;
 
 namespace bg = boost::geometry;
 namespace bgm = boost::geometry::model;
+namespace bgi = boost::geometry::index;
 
 namespace boostgeometry {
   const float EARTH_RADIUS = 6371009.0;    // metres
@@ -98,8 +100,6 @@ typedef bgm::multi_polygon<bgm::polygon<point_geographic> > multi_polygon_geogra
 typedef bgm::segment<point_geographic> segment_geographic;
 typedef bgm::box<point_geographic> box_geographic;
 
-//typedef bgm::d2::point_xy<double> point_d2;
-
 typedef boost::variant<
   point_cartesian,
   multi_point_cartesian,
@@ -127,15 +127,62 @@ typedef boost::variant<
   multi_polygon_geographic
 > GeographicGeometry;
 
-typedef bgm::box<point_cartesian> CartesianBox;
-typedef bgm::box<point_spherical> SphericalBox;
-typedef bgm::box<point_geographic> GeographicBox;
+typedef std::map<unsigned, CartesianGeometry> CartesianMap;
+typedef std::map<unsigned, SphericalGeometry> SphericalMap;
+typedef std::map<unsigned, GeographicGeometry> GeographicMap;
 
+typedef std::pair<box_cartesian, CartesianMap::iterator> CartesianValue;
+typedef std::pair<box_spherical, SphericalMap::iterator> SphericalValue;
+typedef std::pair<box_geographic, GeographicMap::iterator> GeographicValue;
+
+struct print_visitor : public boost::static_visitor<>
+{
+  void operator()(point_cartesian const& g) const { std::cout << bg::wkt<point_cartesian>(g) << std::endl; }
+  void operator()(multi_point_cartesian const& g) const { std::cout << bg::wkt<multi_point_cartesian>(g) << std::endl; }
+  void operator()(linestring_cartesian const& g) const { std::cout << bg::wkt<linestring_cartesian>(g) << std::endl; }
+  void operator()(multi_linestring_cartesian const& g) const { std::cout << bg::wkt<multi_linestring_cartesian>(g) << std::endl; }
+  void operator()(polygon_cartesian const& g) const { std::cout << bg::wkt<polygon_cartesian>(g) << std::endl; }
+  void operator()(multi_polygon_cartesian const& g) const { std::cout << bg::wkt<multi_polygon_cartesian>(g) << std::endl; }
+};
+
+struct envelope_visitor_cartesian : public boost::static_visitor<box_cartesian>
+{
+  box_cartesian operator()(point_cartesian const& g) const { return bg::return_envelope<box_cartesian>(g); }
+  box_cartesian operator()(multi_point_cartesian const& g) const { return bg::return_envelope<box_cartesian>(g); }
+  box_cartesian operator()(linestring_cartesian const& g) const { return bg::return_envelope<box_cartesian>(g); }
+  box_cartesian operator()(multi_linestring_cartesian const& g) const { return bg::return_envelope<box_cartesian>(g); }
+  box_cartesian operator()(polygon_cartesian const& g) const { return bg::return_envelope<box_cartesian>(g); }
+  box_cartesian operator()(multi_polygon_cartesian const& g) const { return bg::return_envelope<box_cartesian>(g); }
+};
+
+struct envelope_visitor_spherical : public boost::static_visitor<box_spherical>
+{
+  box_spherical operator()(point_spherical const& g) const { return bg::return_envelope<box_spherical>(g); }
+  box_spherical operator()(multi_point_spherical const& g) const { return bg::return_envelope<box_spherical>(g); }
+  box_spherical operator()(linestring_spherical const& g) const { return bg::return_envelope<box_spherical>(g); }
+  box_spherical operator()(multi_linestring_spherical const& g) const { return bg::return_envelope<box_spherical>(g); }
+  box_spherical operator()(polygon_spherical const& g) const { return bg::return_envelope<box_spherical>(g); }
+  box_spherical operator()(multi_polygon_spherical const& g) const { return bg::return_envelope<box_spherical>(g); }
+};
+
+struct envelope_visitor_geographic : public boost::static_visitor<box_geographic>
+{
+  box_geographic operator()(point_geographic const& g) const { return bg::return_envelope<box_geographic>(g); }
+  box_geographic operator()(multi_point_geographic const& g) const { return bg::return_envelope<box_geographic>(g); }
+  box_geographic operator()(linestring_geographic const& g) const { return bg::return_envelope<box_geographic>(g); }
+  box_geographic operator()(multi_linestring_geographic const& g) const { return bg::return_envelope<box_geographic>(g); }
+  box_geographic operator()(polygon_geographic const& g) const { return bg::return_envelope<box_geographic>(g); }
+  box_geographic operator()(multi_polygon_geographic const& g) const { return bg::return_envelope<box_geographic>(g); }
+};
+
+
+/*
 typedef boost::variant<
   bgm::box<point_cartesian>,
   bgm::box<point_spherical>,
   bgm::box<point_geographic>
 > CSGBox;
+*/
 
 typedef boost::variant<
   CartesianGeometry,

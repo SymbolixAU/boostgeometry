@@ -1,4 +1,14 @@
 
+## INDEX
+
+# geoms <- c(
+#   "LINESTRING(0 0, 1 1, 2 2)"
+#   , "POINT(0 0)"
+#   , "POLYGON((-1 -1, 1 -1, 1 1, -1 1, -1 -1))"
+# )
+#
+# boostgeometry:::rtreetest( geoms )
+#
 
 # ## Benchmarking
 # library(microbenchmark)

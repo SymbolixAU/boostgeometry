@@ -217,3 +217,7 @@ rcpp_wkt_within_geographic <- function(x, y) {
     .Call(`_boostgeometry_rcpp_wkt_within_geographic`, x, y)
 }
 
+rtreetest <- function(wkt) {
+    invisible(.Call(`_boostgeometry_rtreetest`, wkt))
+}
+

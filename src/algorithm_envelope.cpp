@@ -8,7 +8,7 @@ Rcpp::StringVector rcpp_wkt_envelope_cartesian( Rcpp::List wkt ) {
   Rcpp::StringVector wktEnvelope( wkt.length() );
 
   CartesianGeometry geom;
-  CartesianBox box;
+  box_cartesian box;
 
   for (size_t i = 0; i < wkt.length(); i++ ) {
     geom = read_cartesian_wkt( wkt[i] );
@@ -25,7 +25,7 @@ Rcpp::StringVector rcpp_wkt_envelope_spherical( Rcpp::List wkt ) {
   Rcpp::StringVector wktEnvelope( wkt.length() );
 
   SphericalGeometry geom;
-  SphericalBox box;
+  box_spherical box;
 
   for (size_t i = 0; i < wkt.length(); i++ ) {
     geom = read_spherical_wkt( wkt[i] );
@@ -42,7 +42,7 @@ Rcpp::StringVector rcpp_wkt_envelope_geographic( Rcpp::List wkt ) {
   Rcpp::StringVector wktEnvelope( wkt.length() );
 
   GeographicGeometry geom;
-  GeographicBox box;
+  box_geographic box;
 
   for (size_t i = 0; i < wkt.length(); i++ ) {
     geom = read_geographic_wkt( wkt[i] );

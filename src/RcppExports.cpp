@@ -636,6 +636,16 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rtreetest
+void rtreetest(Rcpp::List wkt);
+RcppExport SEXP _boostgeometry_rtreetest(SEXP wktSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type wkt(wktSEXP);
+    rtreetest(wkt);
+    return R_NilValue;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_boostgeometry_rcpp_wkt_area", (DL_FUNC) &_boostgeometry_rcpp_wkt_area, 2},
@@ -692,6 +702,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_boostgeometry_rcpp_wkt_within_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_within_cartesian, 2},
     {"_boostgeometry_rcpp_wkt_within_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_within_spherical, 2},
     {"_boostgeometry_rcpp_wkt_within_geographic", (DL_FUNC) &_boostgeometry_rcpp_wkt_within_geographic, 2},
+    {"_boostgeometry_rtreetest", (DL_FUNC) &_boostgeometry_rtreetest, 1},
     {NULL, NULL, 0}
 };
 
