@@ -5,10 +5,11 @@
 #   "LINESTRING(0 0, 1 1, 2 2)"
 #   , "POINT(0 0)"
 #   , "POLYGON((-1 -1, 1 -1, 1 1, -1 1, -1 -1))"
+#   , "POINT(4 4)"
 # )
 #
 # boostgeometry:::rtreetest( geoms )
-#
+
 
 # ## Benchmarking
 # library(microbenchmark)

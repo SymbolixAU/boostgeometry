@@ -135,6 +135,41 @@ typedef std::pair<box_cartesian, CartesianMap::iterator> CartesianValue;
 typedef std::pair<box_spherical, SphericalMap::iterator> SphericalValue;
 typedef std::pair<box_geographic, GeographicMap::iterator> GeographicValue;
 
+struct wkt_visitor : public boost::static_visitor<std::string>
+{
+  std::string operator()(point_cartesian const& g) const {
+    std::ostringstream os;
+    os << std::setprecision(12) << bg::wkt<point_cartesian>(g);
+    return os.str();
+    }
+  std::string operator()(multi_point_cartesian const& g) const {
+    std::ostringstream os;
+    os << std::setprecision(12) << bg::wkt<multi_point_cartesian>(g);
+    return os.str();
+  }
+  std::string operator()(linestring_cartesian const& g) const {
+    std::ostringstream os;
+    os << std::setprecision(12) << bg::wkt<linestring_cartesian>(g);
+    return os.str();
+  }
+  std::string operator()(multi_linestring_cartesian const& g) const {
+    std::ostringstream os;
+    os << std::setprecision(12) << bg::wkt<multi_linestring_cartesian>(g);
+    return os.str();
+  }
+  std::string operator()(polygon_cartesian const& g) const {
+    std::ostringstream os;
+    os << std::setprecision(12) << bg::wkt<polygon_cartesian>(g);
+    return os.str();
+  }
+  std::string operator()(multi_polygon_cartesian const& g) const {
+    std::ostringstream os;
+    os << std::setprecision(12) << bg::wkt<multi_polygon_cartesian>(g);
+    return os.str();
+  }
+};
+
+
 struct print_visitor : public boost::static_visitor<>
 {
   void operator()(point_cartesian const& g) const { std::cout << bg::wkt<point_cartesian>(g) << std::endl; }

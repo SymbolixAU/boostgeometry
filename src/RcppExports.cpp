@@ -637,13 +637,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // rtreetest
-void rtreetest(Rcpp::List wkt);
+Rcpp::StringVector rtreetest(Rcpp::List wkt);
 RcppExport SEXP _boostgeometry_rtreetest(SEXP wktSEXP) {
 BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::List >::type wkt(wktSEXP);
-    rtreetest(wkt);
-    return R_NilValue;
+    rcpp_result_gen = Rcpp::wrap(rtreetest(wkt));
+    return rcpp_result_gen;
 END_RCPP
 }
 

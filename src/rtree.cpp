@@ -17,25 +17,29 @@ namespace bg = boost::geometry;
 namespace bgi = boost::geometry::index;
 
 // [[Rcpp::export]]
-void rtreetest( Rcpp::List wkt ) {
+Rcpp::StringVector rtreetest( Rcpp::List wkt ) {
 
   CartesianGeometry geometry;
   CartesianMap geometries;
 
   bgi::rtree< CartesianValue, bgi::quadratic<16> > rtree;
 
-  for (size_t i = 0; i < wkt.length(); i++ ) {
+  for (unsigned i = 0; i < wkt.length(); i++ ) {
     geometry = read_cartesian_wkt( wkt[i] );
     geometries.insert(std::make_pair(i, geometry));
   }
 
   // fill the spatial index
-  for ( CartesianMap::iterator it = geometries.begin() ; it != geometries.end() ; ++it )
+  for ( CartesianMap::iterator it = geometries.begin(); it != geometries.end(); ++it )
   {
     // calculate polygon bounding box
     box_cartesian b = boost::apply_visitor(envelope_visitor_cartesian(), it->second);
+    //box_cartesian b = boost::apply_visitor(envelope_visitor_cartesian(), geometry);
+    //box_cartesian b;
+    //bg::envelope( geometry, b);
     // insert new value
     rtree.insert(std::make_pair(b, it));
+    //rtree.insert(std::make_pair(b, i));
   }
 
 
@@ -48,8 +52,29 @@ void rtreetest( Rcpp::List wkt ) {
   std::cout << "spatial query box:" << std::endl;
   std::cout << bg::wkt<box_cartesian>(query_box) << std::endl;
   std::cout << "spatial query result:" << std::endl;
+
   BOOST_FOREACH(CartesianValue const& v, result_s)
     boost::apply_visitor(print_visitor(), v.second->second);
+
+  Rcpp::StringVector res( result_s.size() );
+
+  int i = 0;
+  for ( auto r : result_s ) {
+    std::string s = boost::apply_visitor(wkt_visitor(), r.second->second);
+    res[i] = s;
+    i++;
+  }
+
+  //const int num = result_s.size();
+  //const int* ptr = (num > 0) ? result_s.data() : nullptr;
+  //for(int i = 0; i < num; i++)
+  //{
+  //  res[i] = boost::apply_visitor(wkt_visitor(), ptr[i]);
+  //}
+
+
+  //BOOST_FOREACH(CartesianValue const& v, result_s)
+  //  std::cout << bg::wkt<box_cartesian>(v.first) << " - " << v.second << std::endl;
 
   /*
   //typedef boost::variant<polygon_cartesian, linestring_cartesian> geometry;
@@ -92,4 +117,6 @@ void rtreetest( Rcpp::List wkt ) {
   BOOST_FOREACH(value const& v, result_n)
     std::cout << bg::wkt<box_cartesian>(v.first) << " - " << v.second << std::endl;
   */
+
+  return res;
 }
