@@ -1,4 +1,37 @@
 
+## how to deal with operations which fail to compile?
+## can I switch on the 'type'?
+## store in a 'geometries' map?
+## - and if it's one that isn't valid, store an empty valid one/ default one?
+
+
+
+## using a wkt object?
+## or an wkt column?
+# library(googlePolylines)
+#
+# wkt <- polyline_wkt(encode(nc))
+#
+# attr(wkt, 'wkt_column')
+#
+# str(wkt$geometry)
+
+## in each function the x and y can be character vectors, or wkt objects, or wkt_column
+
+## expanding data by list values
+# lst <- list(c(1,2,3), c(3,4))
+#
+# df <- data.frame(id = 1:2, val = c("a","b"))
+#
+# df[c(1,1),]
+#
+# lapply(lst, function(x) {  })
+#
+# lst
+
+# idx <- cbind(rep(1:length(lst), sapply(lst, length)), unlist(lst))
+# cbind(nc[idx[,1], ],  nc[idx[,2],])
+
 ## INDEX
 
 # geoms <- c(
@@ -7,8 +40,16 @@
 #   , "POLYGON((-1 -1, 1 -1, 1 1, -1 1, -1 -1))"
 #   , "POINT(4 4)"
 # )
-#
+
 # boostgeometry:::rtreetest( geoms )
+
+
+# geoms2 <- c(
+#   "POINT(2 2)"
+#   , "POINT(0 0)"
+# )
+#
+# boostgeometry:::rtreetest3( geoms, geoms2 )
 
 
 # ## Benchmarking
@@ -17,6 +58,27 @@
 # library(sf)
 # nc <- st_read(system.file("shape/nc.shp", package="sf"))
 # wkt <- sf::st_as_text(nc$geometry)
+
+
+# microbenchmark(
+#   bg_idx = {
+#     lst <- bg_join(wkt, wkt)
+#   },
+#   bg = {
+#     bg_intersects(wkt$geometry, wkt$geometry)
+#   },
+#   sf = {
+#     sf_res <- sf::st_join(nc, nc)
+#   },
+#   times = 5
+# )
+#
+# Unit: milliseconds
+#   expr       min        lq      mean    median        uq       max neval
+# bg_idx  47.28265  48.85397  49.05106  49.42246  49.78631  49.90989     5
+#     bg 403.55095 404.08965 412.19424 405.47150 421.60882 426.25028     5
+#     sf  12.83821  12.89330  13.43513  13.54708  13.73450  14.16259     5
+
 
 # microbenchmark(
 #   bg = {

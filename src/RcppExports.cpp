@@ -196,6 +196,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// compare_point_cartesian
+void compare_point_cartesian(Rcpp::List& wkt, size_t i);
+RcppExport SEXP _boostgeometry_compare_point_cartesian(SEXP wktSEXP, SEXP iSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List& >::type wkt(wktSEXP);
+    Rcpp::traits::input_parameter< size_t >::type i(iSEXP);
+    compare_point_cartesian(wkt, i);
+    return R_NilValue;
+END_RCPP
+}
 // rcpp_wkt_disjoint_cartesian
 Rcpp::LogicalMatrix rcpp_wkt_disjoint_cartesian(Rcpp::List wktOne, Rcpp::List wktTwo);
 RcppExport SEXP _boostgeometry_rcpp_wkt_disjoint_cartesian(SEXP wktOneSEXP, SEXP wktTwoSEXP) {
@@ -637,13 +648,35 @@ BEGIN_RCPP
 END_RCPP
 }
 // rtreetest
-Rcpp::StringVector rtreetest(Rcpp::List wkt);
+Rcpp::StringMatrix rtreetest(Rcpp::List wkt);
 RcppExport SEXP _boostgeometry_rtreetest(SEXP wktSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::List >::type wkt(wktSEXP);
     rcpp_result_gen = Rcpp::wrap(rtreetest(wkt));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rtreetest2
+void rtreetest2();
+RcppExport SEXP _boostgeometry_rtreetest2() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rtreetest2();
+    return R_NilValue;
+END_RCPP
+}
+// rcpp_bg_join_predicate_cartesian
+Rcpp::List rcpp_bg_join_predicate_cartesian(Rcpp::List wktOne, Rcpp::List wktTwo, std::string predicate);
+RcppExport SEXP _boostgeometry_rcpp_bg_join_predicate_cartesian(SEXP wktOneSEXP, SEXP wktTwoSEXP, SEXP predicateSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktOne(wktOneSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type wktTwo(wktTwoSEXP);
+    Rcpp::traits::input_parameter< std::string >::type predicate(predicateSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_bg_join_predicate_cartesian(wktOne, wktTwo, predicate));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -665,6 +698,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_boostgeometry_rcpp_wkt_densify_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_densify_spherical, 2},
     {"_boostgeometry_rcpp_wkt_densify_geographic", (DL_FUNC) &_boostgeometry_rcpp_wkt_densify_geographic, 2},
     {"_boostgeometry_rcpp_wkt_difference", (DL_FUNC) &_boostgeometry_rcpp_wkt_difference, 3},
+    {"_boostgeometry_compare_point_cartesian", (DL_FUNC) &_boostgeometry_compare_point_cartesian, 2},
     {"_boostgeometry_rcpp_wkt_disjoint_cartesian", (DL_FUNC) &_boostgeometry_rcpp_wkt_disjoint_cartesian, 2},
     {"_boostgeometry_rcpp_wkt_disjoint_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_disjoint_spherical, 2},
     {"_boostgeometry_rcpp_wkt_disjoint_geographic", (DL_FUNC) &_boostgeometry_rcpp_wkt_disjoint_geographic, 2},
@@ -704,6 +738,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_boostgeometry_rcpp_wkt_within_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_within_spherical, 2},
     {"_boostgeometry_rcpp_wkt_within_geographic", (DL_FUNC) &_boostgeometry_rcpp_wkt_within_geographic, 2},
     {"_boostgeometry_rtreetest", (DL_FUNC) &_boostgeometry_rtreetest, 1},
+    {"_boostgeometry_rtreetest2", (DL_FUNC) &_boostgeometry_rtreetest2, 0},
+    {"_boostgeometry_rcpp_bg_join_predicate_cartesian", (DL_FUNC) &_boostgeometry_rcpp_bg_join_predicate_cartesian, 3},
     {NULL, NULL, 0}
 };
 

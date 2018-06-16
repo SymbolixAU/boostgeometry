@@ -1,6 +1,6 @@
 #' bg_intersects
 #'
-#' Checks if geometries are spatially disjoint from each other
+#' Checks if geometries intersect
 #'
 #' @inheritParams bg_distance
 #'

@@ -14,7 +14,7 @@ bg_intersects(x, y = NULL, strategy = c("cartesian", "spherical"))
 \item{strategy}{coordinate strategy}
 }
 \description{
-Checks if geometries are spatially disjoint from each other
+Checks if geometries intersect
 }
 \note{
 cartesian and spherical strategies supported
