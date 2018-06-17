@@ -49,6 +49,7 @@ template <typename Variant = GeographicCoveredBy>
 Variant read_geographic_covered_by_wkt(std::string const& wkt) {
   return detail::read_any_helper<Variant>::call(wkt);
 }
-*/
 
 #endif
+
+*/

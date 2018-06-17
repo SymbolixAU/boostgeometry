@@ -1,6 +1,29 @@
 #include "R_boostgeometry_within.h"
+
 #include <Rcpp.h>
 using namespace Rcpp;
+
+/*
+void point_within_poly() {
+  std::string pt = "POINT(0 0)";
+  std::string pl = "POLYGON((-1 -1,1 -1,1 1,-1 1,-1 -1))";
+  point_cartesian point;
+  polygon_cartesian poly;
+
+  bg::read_wkt( pt, point );
+  bg::read_wkt( pl, poly );
+
+  bgi::rtree< CartesianBoxUnsignedValue, bgi::quadratic<16> > rtree;
+  std::vector<CartesianBoxUnsignedValue> result_s;
+
+  // put point into an rtree
+  box_cartesian b = bg::return_envelope<box_cartesian>( poly );
+  rtree.insert(std::make_pair(b, 0));
+
+  // query rtree
+  bgi::query( rtree, bgi::within( point ), std::back_inserter( result_s ));
+}
+*/
 
 // [[Rcpp::export]]
 Rcpp::LogicalMatrix rcpp_wkt_within_cartesian( Rcpp::List x, Rcpp::List y ) {

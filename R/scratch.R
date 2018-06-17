@@ -5,6 +5,24 @@
 ## - and if it's one that isn't valid, store an empty valid one/ default one?
 
 
+# wktOne <- c("POINT(0 0)", "LINESTRING(-3 -3, 1 1)", "POLYGON((-1 -1, 1 -1, 1 1, -1 1, -1 -1))")
+# wktTwo <- c("MULTIPOINT(-3 -3)", "MULTIPOLYGON(((-2 -2, 0 -2, 0 0, -2 0, -2 -2)))")
+#
+# boostgeometry:::rcpp_crosses_predicate_cartesian(wktOne, wktTwo)
+
+# boostgeometry:::rcpp_bg_join_predicate_cartesian(wktOne, wktTwo, "intersects")
+
+# wktTwo <- "BOX(-3 -3, 1 1)"
+# boostgeometry:::rcpp_within_predicate_cartesian(wktOne, wktTwo)
+## this is testing for wktOne is within wktTwo
+
+
+# pt <- sf::st_sfc(sf::st_point(c(0, 0)))
+# poly <- sf::st_sfc(sf::st_polygon(x = list(matrix(c(-1,-1,1,-1,1,1,-1,1,-1,-1), ncol = 2, byrow = T))))
+#
+# sf::st_within(pt, poly)
+# sf::st_within(poly, pt)
+
 
 ## using a wkt object?
 ## or an wkt column?
@@ -54,19 +72,19 @@
 
 # ## Benchmarking
 # library(microbenchmark)
-#
+# library(googlePolylines)
 # library(sf)
 # nc <- st_read(system.file("shape/nc.shp", package="sf"))
 # wkt <- sf::st_as_text(nc$geometry)
-
-
+#
+# wkt <- polyline_wkt(encode(nc))
 # microbenchmark(
 #   bg_idx = {
 #     lst <- bg_join(wkt, wkt)
 #   },
-#   bg = {
-#     bg_intersects(wkt$geometry, wkt$geometry)
-#   },
+#   # bg = {
+#   #   bg_intersects(wkt$geometry, wkt$geometry)
+#   # },
 #   sf = {
 #     sf_res <- sf::st_join(nc, nc)
 #   },

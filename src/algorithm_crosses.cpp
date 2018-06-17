@@ -1,9 +1,10 @@
 #include "R_boostgeometry_crosses.h"
+#include "R_boostgeometry_rtree.h"
+
 #include <Rcpp.h>
 using namespace Rcpp;
 
 //TODO(variants not supported)
-
 
 // [[Rcpp::export]]
 Rcpp::LogicalMatrix rcpp_wkt_crosses_cartesian( Rcpp::List x, Rcpp::List y ) {

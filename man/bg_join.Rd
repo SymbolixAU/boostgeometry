@@ -4,7 +4,7 @@
 \alias{bg_join}
 \title{bg join}
 \usage{
-bg_join(x, y, join = "intersects")
+bg_join(x, y, join = c("intersects", "within"))
 }
 \arguments{
 \item{x}{well-known text representation of a geometry}
@@ -13,4 +13,23 @@ bg_join(x, y, join = "intersects")
 }
 \description{
 Joins geometries
+}
+\examples{
+
+library(googlePolylines) ## for print methods
+
+## vectors
+wktOne <- c("POINT(0 0)", "LINESTRING(-3 -3, 1 1)", "POLYGON((-1 -1, 1 -1, 1 1, -1 1, -1 -1))")
+wktTwo <- c("MULTIPOINT(-3 -3)", "MULTIPOLYGON(((-2 -2, 0 -2, 0 0, -2 0, -2 -2)))")
+bg_join(wktOne, wktTwo, join = "intersects")
+bg_join(wktOne, wktTwo, join = "within") ## currently only boxes supported
+
+library(sf)
+nc <- st_read(system.file("shape/nc.shp", package="sf"), quiet = T)
+wkt <- sf::st_as_text(nc$geometry)
+bg_join(wkt[1:3], wkt[1:5])
+
+wkt <- polyline_wkt(encode(nc))
+bg_join(wkt[1:3, ], wkt[1:5, ])
+
 }

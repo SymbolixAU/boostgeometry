@@ -65,10 +65,6 @@ rcpp_wkt_difference <- function(wktOne, wktTwo, strategy) {
     .Call(`_boostgeometry_rcpp_wkt_difference`, wktOne, wktTwo, strategy)
 }
 
-compare_point_cartesian <- function(wkt, i) {
-    invisible(.Call(`_boostgeometry_compare_point_cartesian`, wkt, i))
-}
-
 rcpp_wkt_disjoint_cartesian <- function(wktOne, wktTwo) {
     .Call(`_boostgeometry_rcpp_wkt_disjoint_cartesian`, wktOne, wktTwo)
 }
@@ -221,12 +217,8 @@ rcpp_wkt_within_geographic <- function(x, y) {
     .Call(`_boostgeometry_rcpp_wkt_within_geographic`, x, y)
 }
 
-rtreetest <- function(wkt) {
-    .Call(`_boostgeometry_rtreetest`, wkt)
-}
-
-rtreetest2 <- function() {
-    invisible(.Call(`_boostgeometry_rtreetest2`))
+rcpp_spatial_predicate_cartesian <- function(wktOne, wktTwo, predicate) {
+    .Call(`_boostgeometry_rcpp_spatial_predicate_cartesian`, wktOne, wktTwo, predicate)
 }
 
 rcpp_bg_join_predicate_cartesian <- function(wktOne, wktTwo, predicate) {

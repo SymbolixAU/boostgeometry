@@ -1,5 +1,3 @@
-
-
 #ifndef R_BOOSTGEOMETRY_RTREE_H
 #define R_BOOSTGEOMETRY_RTREE_H
 
@@ -98,6 +96,12 @@ struct envelope_visitor_geographic : public boost::static_visitor<box_geographic
   box_geographic operator()(multi_polygon_geographic const& g) const { return bg::return_envelope<box_geographic>(g); }
 };
 
+void fill_cartesian_rtree( Rcpp::List& wkt, bgi::rtree< CartesianBoxUnsignedValue, bgi::quadratic<16> >& rtree );
+
+void fill_spherical_rtree( Rcpp::List& wkt, bgi::rtree< SphericalBoxUnsignedValue, bgi::quadratic<16> >& rtree );
+
+void fill_geographic_rtree( Rcpp::List& wkt, bgi::rtree< GeographicBoxUnsignedValue, bgi::quadratic<16> >& rtree );
+
 void cartesian_rtree( CartesianGeometry& geom,
                       Rcpp::List& wkt,
                       bgi::rtree< CartesianBoxUnsignedValue, bgi::quadratic<16> >& rtree);
@@ -109,6 +113,10 @@ void spherical_rtree( SphericalGeometry& geom,
 void geographic_rtree( GeographicGeometry& geom,
                       Rcpp::List& wkt,
                       bgi::rtree< GeographicBoxUnsignedValue, bgi::quadratic<16> >& rtree);
+
+void query_intersects_cartesian(std::string& thisWkt, std::vector<CartesianBoxUnsignedValue>& result_s, bgi::rtree< CartesianBoxUnsignedValue, bgi::quadratic<16> >& rtree);
+
+void query_within_cartesian(std::string& thisWkt, std::vector<CartesianBoxUnsignedValue>& result_s, bgi::rtree< CartesianBoxUnsignedValue, bgi::quadratic<16> >& rtree);
 
 
 void rcpp_bg_predicate_cartesian(

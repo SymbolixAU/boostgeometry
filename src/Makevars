@@ -3,10 +3,11 @@
 CXX_STD = CXX14
 
 ## We need the headers exported via inst/include
-PKG_CPPFLAGS = -I../inst/include/
+PKG_CPPFLAGS = -I../inst/include/ -DNDEBUG
 #-I../usr/local/boost_1_67_0
 #PKG_LIBS = -L../usr/local/boost_1_67_0/stage/lib
 
+# https://stackoverflow.com/questions/33005712/why-boost-geometry-index-rtree-is-slower-than-superliminal-rtree
 # https://stackoverflow.com/a/31306274/5977215
 # http://dirk.eddelbuettel.com/blog/2017/11/27/
 # https://askubuntu.com/a/470636/561486

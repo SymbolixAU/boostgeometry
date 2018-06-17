@@ -13,9 +13,9 @@ LazyData: true
 RoxygenNote: 6.0.1
 License: BSL-1.0
 LinkingTo: 
-    Rcpp, BH
+    Rcpp
 Imports: 
-    Rcpp, BH
+    Rcpp
 Suggests: 
     testthat,
     covr

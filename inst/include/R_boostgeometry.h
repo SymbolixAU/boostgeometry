@@ -20,6 +20,8 @@ namespace bgm = boost::geometry::model;
 namespace bgi = boost::geometry::index;
 
 namespace boostgeometry {
+
+  //static const std::vector<std::string> geometries{"LINESTRING","MULTILINESTRING","MULTIPOLYGON","MULTIPOINT","POLYGON","POINT"};
   const float EARTH_RADIUS = 6371009.0;    // metres
   // 6378137.0 ?
 }

@@ -1,6 +1,8 @@
 #include "R_boostgeometry.h"
+#include "R_boostgeometry_rtree.h"
 #include <Rcpp.h>
 using namespace Rcpp;
+
 
 
 // [[Rcpp::export]]

@@ -6,6 +6,12 @@
 namespace bg = boost::geometry;
 namespace bgm = boost::geometry::model;
 
+namespace bg_disjoint {
+  // sorted lists for using binary_search
+  static const std::set<std::string> disjoint_cg{"MULTIPOINT", "POINT"};
+}
+
+
 typedef boost::variant<
   point_cartesian
   , multi_point_cartesian

@@ -1,23 +1,7 @@
 #include "R_boostgeometry_disjoint.h"
+
 #include <Rcpp.h>
 using namespace Rcpp;
-
-
-
-// [[Rcpp::export]]
-void compare_point_cartesian(Rcpp::List& wkt, size_t i) {
-  point_cartesian point;
-  bg::read_wkt(wkt[i], point);
-
-  // given the algorithm, test if this type of geometry is comparable
-  // IF NOT, return
-  std::vector<std::string> disjoint_cartesian_geometries{"point", "multipoint"};
-
-  std::find(disjoint_cartesian_geometries.begin(), disjoint_cartesian_geometries.end(), "point");
-
-
-}
-
 
 // [[Rcpp::export]]
 Rcpp::LogicalMatrix rcpp_wkt_disjoint_cartesian( Rcpp::List wktOne, Rcpp::List wktTwo ) {
