@@ -221,6 +221,14 @@ rcpp_spatial_predicate_cartesian <- function(wktOne, wktTwo, predicate) {
     .Call(`_boostgeometry_rcpp_spatial_predicate_cartesian`, wktOne, wktTwo, predicate)
 }
 
+polygon_within <- function() {
+    invisible(.Call(`_boostgeometry_polygon_within`))
+}
+
+rtree_within <- function() {
+    invisible(.Call(`_boostgeometry_rtree_within`))
+}
+
 rcpp_bg_join_predicate_cartesian <- function(wktOne, wktTwo, predicate) {
     .Call(`_boostgeometry_rcpp_bg_join_predicate_cartesian`, wktOne, wktTwo, predicate)
 }
