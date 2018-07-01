@@ -649,15 +649,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// polygon_within
-void polygon_within();
-RcppExport SEXP _boostgeometry_polygon_within() {
-BEGIN_RCPP
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    polygon_within();
-    return R_NilValue;
-END_RCPP
-}
 // rtree_within
 void rtree_within();
 RcppExport SEXP _boostgeometry_rtree_within() {
@@ -737,7 +728,6 @@ static const R_CallMethodDef CallEntries[] = {
     {"_boostgeometry_rcpp_wkt_within_spherical", (DL_FUNC) &_boostgeometry_rcpp_wkt_within_spherical, 2},
     {"_boostgeometry_rcpp_wkt_within_geographic", (DL_FUNC) &_boostgeometry_rcpp_wkt_within_geographic, 2},
     {"_boostgeometry_rcpp_spatial_predicate_cartesian", (DL_FUNC) &_boostgeometry_rcpp_spatial_predicate_cartesian, 3},
-    {"_boostgeometry_polygon_within", (DL_FUNC) &_boostgeometry_polygon_within, 0},
     {"_boostgeometry_rtree_within", (DL_FUNC) &_boostgeometry_rtree_within, 0},
     {"_boostgeometry_rcpp_bg_join_predicate_cartesian", (DL_FUNC) &_boostgeometry_rcpp_bg_join_predicate_cartesian, 3},
     {NULL, NULL, 0}

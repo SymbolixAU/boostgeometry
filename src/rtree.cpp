@@ -21,6 +21,60 @@ namespace bgi = boost::geometry::index;
 //bgi::overlaps();
 //bgi::within();
 
+
+// [[Rcpp::export]]
+void rtree_within() {
+
+  typedef bgm::point< double, 2, bg::cs::cartesian > point;
+  typedef bgm::box<point> box;
+  typedef bgm::linestring<point> line;
+  typedef bgm::polygon<point> polygon;
+
+  typedef std::pair<box, unsigned> value;
+
+  bgi::rtree<value, bgi::quadratic<16> > rtree;
+  std::vector<value> result_s;
+
+  polygon poly1;
+  polygon poly2;
+  line line1;
+
+  bg::read_wkt("POLYGON((0 0,0 1,1 1,1 0,0 0))", poly1);
+  bg::read_wkt("POLYGON((0 0,0 3,3 3,3 0,0 0))", poly2);
+  bg::read_wkt("LINESTRING(1 1, 2 2)", line1);
+
+  std::cout << "line2 in poly1: " << bg::within(line1, poly1) << std::endl;
+  std::cout << "line2 in poly2: " << bg::within(line1, poly2) << std::endl;
+
+  // boxes to insert into rtree
+  box poly_box1 = bg::return_envelope<box>( poly1 );
+  rtree.insert(std::make_pair(poly_box1, 0));
+
+  box poly_box2 = bg::return_envelope<box>( poly2 );
+  rtree.insert(std::make_pair(poly_box2, 2));
+
+  // box around the line
+  box line_box1 = bg::return_envelope<box>( line1 );
+
+  std::cout << "poly_box1: " << bg::wkt( poly_box1 ) << std::endl;
+  std::cout << "poly_box2: " << bg::wkt( poly_box2 ) << std::endl;
+  std::cout << "line_box1: " << bg::wkt( line_box1 ) << std::endl;
+
+  rtree.query(bgi::within( line_box1 ), std::back_inserter( result_s ));
+  std::cout << "line_box1 within rtree - size: " << result_s.size() << std::endl;
+
+  rtree.query(bgi::contains( line_box1 ), std::back_inserter( result_s ));
+  std::cout << "rtree contains - size: " << result_s.size() << std::endl;
+
+  //std::cout << "line_box1 in poly2: " << bg::within(line_box1, poly2) << std::endl;
+
+  // THIS DOESN"T WORK
+  // query if a line is 'within' the rtree
+  //rtree.query(bgi::within( line2 ), std::back_inserter( result_s ));
+
+}
+
+
 void fill_cartesian_rtree( Rcpp::List& wkt, bgi::rtree< CartesianBoxUnsignedValue, bgi::quadratic<16> >& rtree ) {
 
   for (size_t i = 0; i < wkt.size(); i++) {
