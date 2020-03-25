@@ -4,6 +4,8 @@ status](https://travis-ci.org/SymbolixAU/boostgeometry.svg?branch=master)](https
 [![Coverage
 status](https://codecov.io/gh/SymbolixAU/boostgeometry/branch/master/graph/badge.svg)](https://codecov.io/github/SymbolixAU/boostgeometry?branch=master)
 
+**This is / was an experimental package and is no longer actively developped or maintained**
+
 <!-- git clone https://github.com/boostorg/geometry --branch boost-1.67.0 --depth 1 -->
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
